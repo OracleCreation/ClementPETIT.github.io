@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clément PETIT — Psychothérapeute Gestalt · Paris 13e · Burn-out, Anxiété, Sens au travail</title>
+<meta name="description" content="Clément PETIT, psychothérapeute Gestalt certifié à Paris 13e. Accompagnement du burn-out, anxiété, souffrance au travail, perte de sens.">
+<link rel="canonical" href="https://www.clementpetit-psychotherapeute.fr/">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Dancing+Script:wght@600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"MedicalBusiness","name":"Clément PETIT — Psychothérapeute Gestalt","url":"https://www.clementpetit-psychotherapeute.fr/","address":{"@type":"PostalAddress","streetAddress":"3 rue du Dr Lucas-Championnière","addressLocality":"Paris","postalCode":"75013","addressCountry":"FR"}}
+</script>
+<style>
+:root {
+  --ivory:      #F5F0E8;
+  --ivory-lt:   #FAF7F2;
+  --sage-dk:    #3D5C4E;
+  --sage:       #4A6B5D;
+  --sage-mid:   #5C7A6B;
+  --sage-lt:    #8AA898;
+  --sage-xs:    #E8EEE9;
+  --anthracite: #2C2C2C;
+  --slate:      #3A4A58;
+  --copper:     #B07D62;
+  --white:      #FFFFFF;
+  --text:       #3C3C3C;
+  --muted:      #6B7470;
+  --nav-h:      64px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background: var(--ivory);
+  overflow-x: hidden;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--nav-h);
+  background: var(--anthracite);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  z-index: 1000;
+}
+.nav-logo {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+.nav-logo-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+}
+.nav-logo-sub {
+  font-size: 0.58rem;
+  font-weight: 400;
+  color: var(--sage-lt);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  align-items: center;
+}
+.nav-links a {
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--white); }
+.nav-links a.active { color: var(--white); }
+.nav-cta {
+  background: var(--sage) !important;
+  color: var(--white) !important;
+  padding: 8px 18px;
+  border-radius: 4px;
+  font-weight: 400 !important;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--sage-mid) !important; }
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+.nav-toggle span {
+  display: block; width: 22px; height: 1.5px;
+  background: rgba(255,255,255,0.7);
+  transition: all 0.3s; border-radius: 2px;
+}
+.nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+section { scroll-margin-top: var(--nav-h); }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
+
+/* HERO */
+#accueil {
+  min-height: 100vh;
+  background: var(--ivory);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: var(--nav-h);
+  position: relative;
+  overflow: hidden;
+}
+.hero-left {
+  padding: 80px 60px 80px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+.hero-eyebrow {
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 20px;
+}
+.hero-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.5rem, 6vw, 6rem);
+  font-weight: 300;
+  color: var(--anthracite);
+  line-height: 0.95;
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+.hero-name strong {
+  display: block;
+  font-weight: 600;
+}
+.hero-subtitle {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--muted);
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+.hero-tagline {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.65;
+  max-width: 400px;
+  margin-bottom: 40px;
+}
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--sage);
+  color: var(--white);
+  padding: 12px 26px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background 0.2s, transform 0.15s;
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  border: none; cursor: pointer;
+}
+.btn-primary:hover { background: var(--sage-dk); transform: translateY(-1px); }
+.btn-secondary {
+  border: 1px solid rgba(74,107,93,0.4);
+  color: var(--sage);
+  padding: 12px 26px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  display: inline-block;
+}
+.btn-secondary:hover { border-color: var(--sage); background: rgba(74,107,93,0.06); }
+
+/* Hero right — carte info */
+.hero-right {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 80px 64px 80px 40px;
+}
+.hero-info-card {
+  background: var(--anthracite);
+  color: var(--white);
+  border-radius: 8px;
+  padding: 32px;
+  width: 280px;
+  position: relative;
+  z-index: 2;
+}
+.hero-info-card .hic-label {
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--sage-lt);
+  margin-bottom: 14px;
+  font-weight: 400;
+}
+.hero-info-card p {
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.65);
+  font-weight: 300;
+  margin-bottom: 18px;
+}
+.hero-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 9px;
+  font-weight: 300;
+  line-height: 1.45;
+}
+.hero-info-item::before {
+  content: '';
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--sage-lt);
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+/* Decorative circle behind card */
+.hero-right::before {
+  content: '';
+  position: absolute;
+  top: 50%; right: 20px;
+  transform: translateY(-50%);
+  width: 360px; height: 360px;
+  border-radius: 50%;
+  background: rgba(74,107,93,0.07);
+  border: 1px solid rgba(74,107,93,0.1);
+  pointer-events: none;
+}
+.hero-right::after {
+  content: '';
+  position: absolute;
+  top: 50%; right: 120px;
+  transform: translateY(-50%);
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: rgba(74,107,93,0.04);
+  pointer-events: none;
+}
+
+/* RESSENTI */
+#ressenti {
+  background: var(--ivory-lt);
+  padding: 72px 0 80px;
+  border-top: 1px solid rgba(74,107,93,0.1);
+  border-bottom: 1px solid rgba(74,107,93,0.1);
+}
+.ressenti-inner {
+  max-width: 580px;
+  margin: 0 auto;
+  padding: 0 24px;
+  text-align: center;
+}
+.ressenti-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 300;
+  color: var(--anthracite);
+  margin-bottom: 8px;
+}
+.ressenti-sub {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+.smiley-row {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.smiley-item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.smiley-btn {
+  width: 62px; height: 62px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(74,107,93,0.25);
+  background: var(--white);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.85rem;
+  transition: all 0.2s;
+  outline: none;
+}
+.smiley-btn:hover {
+  border-color: var(--sage);
+  transform: scale(1.08);
+  box-shadow: 0 4px 14px rgba(74,107,93,0.14);
+}
+.smiley-btn.selected {
+  border-color: var(--sage);
+  background: var(--sage);
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(74,107,93,0.22);
+}
+.smiley-btn.selected .smiley-face { filter: brightness(0) invert(1); }
+.smiley-label {
+  font-size: 0.65rem;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  font-weight: 300;
+  transition: color 0.2s;
+}
+.smiley-item.active .smiley-label { color: var(--sage); }
+.smiley-response {
+  margin-top: 28px;
+  padding: 18px 24px;
+  background: var(--sage-xs);
+  border-radius: 6px;
+  font-size: 0.88rem;
+  color: var(--anthracite);
+  line-height: 1.75;
+  font-weight: 300;
+  font-style: italic;
+  display: none;
+  border-left: 2px solid var(--sage);
+  text-align: left;
+  animation: fadeUp 0.3s ease;
+}
+@keyframes fadeUp { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
+
+/* A PROPOS */
+#a-propos {
+  background: var(--ivory);
+  padding: 96px 0 100px;
+  position: relative;
+  overflow: hidden;
+}
+#a-propos::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 450px; height: 450px;
+  border-radius: 50%;
+  background: rgba(74,107,93,0.05);
+  pointer-events: none;
+}
+.apropos-label {
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 48px;
+}
+/* Grille asymétrique 35/65 */
+.two-col {
+  display: grid;
+  grid-template-columns: 35% 65%;
+  gap: 64px;
+  align-items: start;
+}
+/* Colonne photo */
+.about-photo-col {
+  position: relative;
+  max-width: 280px;
+  padding-bottom: 28px;
+}
+.about-photo-wrapper { position: relative; }
+.about-photo-wrapper img {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 6px;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 4/5;
+}
+.about-photo-placeholder {
+  background: var(--sage-xs);
+  border-radius: 6px;
+  aspect-ratio: 4/5;
+  max-width: 280px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(74,107,93,0.2);
+  color: var(--sage);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 20px;
+}
+/* Overlay card "Qui suis-je ?" */
+.photo-overlay-card {
+  position: absolute;
+  bottom: -20px;
+  right: -24px;
+  background: var(--anthracite);
+  color: var(--white);
+  border-radius: 6px;
+  padding: 16px 20px;
+  width: 150px;
+  box-shadow: 0 10px 28px rgba(44,44,44,0.2);
+  text-align: center;
+}
+.photo-overlay-card .poc-title {
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--white);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+.photo-overlay-card .poc-sub {
+  font-size: 0.62rem;
+  color: rgba(255,255,255,0.5);
+  margin-top: 3px;
+  font-weight: 300;
+}
+/* Tags sous la photo */
+.about-photo-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 36px;
+}
+.tag {
+  background: transparent;
+  border: 1px solid rgba(74,107,93,0.3);
+  color: var(--sage);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  transition: all 0.2s;
+  cursor: default;
+}
+.tag:hover { background: var(--sage-xs); border-color: var(--sage); color: var(--anthracite); }
+.photo-caption {
+  margin-top: 10px;
+  font-size: 0.65rem;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+/* Colonne droite */
+.about-text .signature {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: var(--anthracite);
+  line-height: 1.1;
+  margin-bottom: 28px;
+  letter-spacing: 0.01em;
+}
+.about-text p {
+  font-size: 0.9rem;
+  line-height: 1.9;
+  color: var(--text);
+  margin-bottom: 16px;
+  font-weight: 300;
+}
+.certif-block {
+  margin-top: 32px;
+  background: var(--white);
+  border-left: 2px solid var(--sage);
+  padding: 18px 22px;
+  border-radius: 0 6px 6px 0;
+  box-shadow: 0 2px 12px rgba(44,44,44,0.05);
+}
+.certif-block h4 {
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 12px;
+}
+.certif-block ul { list-style: none; }
+.certif-block li {
+  font-size: 0.83rem;
+  color: var(--muted);
+  padding: 4px 0;
+  font-weight: 300;
+  line-height: 1.5;
+}
+.certif-block li::before { content: '— '; color: var(--sage-lt); }
+
+/* LA GESTALT */
+#la-gestalt {
+  background: var(--sage);
+  padding: 96px 0;
+  position: relative;
+  overflow: hidden;
+}
+#la-gestalt::before {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: -80px;
+  width: 380px; height: 380px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.06);
+  pointer-events: none;
+}
+.gestalt-label {
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 14px;
+}
+.gestalt-main-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+.gestalt-intro {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.1rem, 2vw, 1.55rem);
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.6;
+  max-width: 700px;
+  margin-bottom: 56px;
+}
+.gestalt-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.gestalt-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  padding: 30px;
+  transition: background 0.25s, transform 0.2s;
+}
+.gestalt-card:hover {
+  background: rgba(255,255,255,0.12);
+  transform: translateY(-2px);
+}
+.gestalt-card-icon {
+  width: 38px; height: 38px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 18px;
+  font-size: 1.1rem;
+}
+.gestalt-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+.gestalt-card p {
+  font-size: 0.82rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.62);
+  font-weight: 300;
+}
+
+/* ACCOMPAGNEMENT */
+#accompagnement {
+  background: var(--ivory);
+  padding: 96px 0;
+}
+.section-label {
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 14px;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 300;
+  color: var(--anthracite);
+  line-height: 1.1;
+  margin-bottom: 48px;
+}
+.pb-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+.pb-card {
+  background: var(--white);
+  border: 1px solid rgba(74,107,93,0.15);
+  border-radius: 8px;
+  padding: 32px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.pb-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--sage), var(--sage-lt));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+.pb-card:hover { border-color: rgba(74,107,93,0.3); box-shadow: 0 6px 24px rgba(44,44,44,0.07); transform: translateY(-2px); }
+.pb-card:hover::before { transform: scaleX(1); }
+.pb-icon {
+  width: 48px; height: 48px; flex-shrink: 0;
+  background: var(--sage-xs);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem;
+}
+.pb-content h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--anthracite);
+  margin-bottom: 7px;
+}
+.pb-content p { font-size: 0.83rem; line-height: 1.75; color: var(--muted); font-weight: 300; }
+.pb-cta-wrap { text-align: center; margin-top: 48px; }
+
+/* COACHING */
+#coaching {
+  background: var(--sage-dk);
+  padding: 96px 0;
+  position: relative;
+  overflow: hidden;
+}
+#coaching::after {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 440px; height: 440px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.07);
+  pointer-events: none;
+}
+.coaching-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: start;
+}
+.coaching-text p {
+  font-size: 0.88rem;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.62);
+  font-weight: 300;
+}
+.coaching-list { list-style: none; margin-top: 26px; }
+.coaching-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.62);
+  font-weight: 300;
+  line-height: 1.6;
+}
+.coaching-list li:last-child { border-bottom: none; }
+.coaching-list .num {
+  width: 24px; height: 24px; flex-shrink: 0;
+  background: rgba(255,255,255,0.15);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.68rem;
+  font-weight: 500;
+}
+.diff-label {
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.42);
+  margin-bottom: 14px;
+}
+.diff-table { margin-top: 32px; }
+.diff-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+.diff-cell {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 6px;
+  padding: 13px 16px;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.55);
+  font-weight: 300;
+  line-height: 1.5;
+}
+.diff-cell.header {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.15);
+  color: var(--white);
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* AVIS */
+#avis {
+  background: var(--ivory-lt);
+  padding: 96px 0;
+  position: relative;
+}
+#avis::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(74,107,93,0.2), transparent);
+}
+.avis-header-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 48px;
+}
+.avis-score-card {
+  background: var(--sage);
+  border-radius: 8px;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 6px 20px rgba(74,107,93,0.2);
+}
+.avis-score-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.8rem;
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1;
+}
+.avis-score-stars { color: #F5C842; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 3px; }
+.avis-score-label { font-size: 0.65rem; color: rgba(255,255,255,0.65); font-weight: 300; }
+.avis-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.avis-card {
+  background: var(--white);
+  border: 1px solid rgba(74,107,93,0.12);
+  border-radius: 8px;
+  padding: 26px;
+  transition: box-shadow 0.2s, transform 0.2s;
+  position: relative;
+}
+.avis-card:hover { box-shadow: 0 6px 22px rgba(44,44,44,0.07); transform: translateY(-2px); }
+.avis-google-badge { position: absolute; top: 16px; right: 16px; width: 16px; opacity: 0.4; }
+.avis-stars { color: #F5C842; font-size: 0.82rem; letter-spacing: 2px; margin-bottom: 12px; }
+.avis-text {
+  font-size: 0.84rem; line-height: 1.75; color: var(--text); font-weight: 300;
+  font-style: italic; margin-bottom: 18px;
+  position: relative; padding-left: 16px;
+}
+.avis-text::before {
+  content: '"';
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.8rem; color: var(--sage-xs);
+  line-height: 0; position: absolute; left: 0; top: 14px; font-style: normal;
+}
+.avis-author { display: flex; align-items: center; gap: 10px; }
+.avis-avatar {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--sage-xs); border: 1px solid rgba(74,107,93,0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.78rem; font-weight: 500; color: var(--sage); flex-shrink: 0;
+}
+.avis-name { font-size: 0.78rem; font-weight: 500; color: var(--anthracite); }
+.avis-date { font-size: 0.65rem; color: var(--muted); font-weight: 300; margin-top: 1px; }
+.avis-note { text-align: center; margin-top: 28px; font-size: 0.72rem; color: var(--muted); font-weight: 300; }
+.avis-note a { color: var(--sage); text-decoration: none; }
+.avis-note a:hover { text-decoration: underline; }
+
+/* CONTACT */
+#contact {
+  background: var(--anthracite);
+  padding: 96px 0;
+  position: relative;
+  overflow: hidden;
+}
+#contact::before {
+  content: '';
+  position: absolute;
+  bottom: -80px; right: -80px;
+  width: 360px; height: 360px;
+  border-radius: 50%;
+  background: rgba(74,107,93,0.08);
+  pointer-events: none;
+}
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; margin-top: 52px; }
+.contact-info h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  color: rgba(255,255,255,0.72);
+  margin-bottom: 28px;
+  font-weight: 300;
+}
+.info-row {
+  display: flex; align-items: flex-start; gap: 13px;
+  margin-bottom: 18px;
+  color: rgba(255,255,255,0.58);
+  font-size: 0.84rem; font-weight: 300; line-height: 1.65;
+}
+.info-row .icon {
+  width: 34px; height: 34px; flex-shrink: 0;
+  background: rgba(74,107,93,0.2);
+  border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem; align-self: flex-start; margin-top: 1px;
+}
+.info-row .info-text { flex: 1; }
+.info-row small { color: rgba(255,255,255,0.35); font-size: 0.8em; }
+.tarif-cards { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+.tarif-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 7px;
+  padding: 18px 20px;
+  flex: 1; min-width: 120px;
+  transition: background 0.2s;
+}
+.tarif-card:hover { background: rgba(255,255,255,0.08); }
+.tarif-card .price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem; font-weight: 300; color: var(--white); margin-bottom: 3px;
+}
+.tarif-card .price-label { font-size: 0.68rem; color: rgba(255,255,255,0.45); font-weight: 300; line-height: 1.4; }
+.contact-form-zone {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 10px;
+  padding: 36px;
+  backdrop-filter: blur(4px);
+}
+.contact-form-zone h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem; color: var(--white); margin-bottom: 6px; font-weight: 300;
+}
+.contact-form-zone .sub {
+  font-size: 0.78rem; color: rgba(255,255,255,0.42); margin-bottom: 24px; font-weight: 300; line-height: 1.6;
+}
+.form-group { margin-bottom: 14px; }
+.form-group label {
+  display: block;
+  font-size: 0.62rem; color: rgba(255,255,255,0.55);
+  letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 6px; font-weight: 400;
+}
+.form-group input, .form-group textarea, .form-group select {
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: var(--white);
+  padding: 10px 13px;
+  border-radius: 5px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem; font-weight: 300;
+  outline: none; transition: border-color 0.2s, background 0.2s;
+  -webkit-appearance: none;
+}
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+  border-color: rgba(74,107,93,0.6); background: rgba(255,255,255,0.08);
+}
+.form-group textarea { resize: vertical; min-height: 88px; }
+.form-group select option { background: var(--anthracite); }
+.form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.25); }
+.rdv-cta {
+  background: var(--sage);
+  color: var(--white);
+  border: none;
+  padding: 12px 26px;
+  border-radius: 4px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.74rem; font-weight: 400;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  cursor: pointer; transition: background 0.2s; width: 100%; margin-top: 5px;
+}
+.rdv-cta:hover { background: var(--sage-dk); }
+.rgpd-note {
+  font-size: 0.65rem; color: rgba(255,255,255,0.3);
+  margin-top: 10px; text-align: center; line-height: 1.55; font-weight: 300;
+}
+
+/* FOOTER */
+footer {
+  background: #1C1E1F;
+  padding: 26px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+footer .f-name { font-family: 'Cormorant Garamond', serif; font-size: 0.92rem; color: rgba(255,255,255,0.4); font-weight: 300; }
+footer .f-links { display: flex; gap: 20px; flex-wrap: wrap; }
+footer .f-links a { font-size: 0.65rem; color: rgba(255,255,255,0.3); text-decoration: none; letter-spacing: 0.05em; transition: color 0.2s; }
+footer .f-links a:hover { color: rgba(255,255,255,0.65); }
+footer .f-copy { font-size: 0.62rem; color: rgba(255,255,255,0.25); }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  nav { padding: 0 20px; }
+  .nav-links {
+    display: none; flex-direction: column;
+    position: fixed; top: var(--nav-h); left: 0; right: 0;
+    background: rgba(44,44,44,0.97);
+    padding: 18px 20px 24px; gap: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-links.open { display: flex; }
+  .nav-links li { width: 100%; }
+  .nav-links a { display: block; padding: 12px 0; font-size: 0.78rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .nav-cta { margin-top: 12px; padding: 10px 18px; text-align: center; border-radius: 4px; border-bottom: none !important; }
+  .nav-toggle { display: flex; }
+
+  #accueil { grid-template-columns: 1fr; }
+  .hero-left { padding: calc(var(--nav-h) + 44px) 24px 60px; }
+  .hero-right { display: none; }
+
+  .two-col { grid-template-columns: 1fr; gap: 40px; }
+  .about-photo-col { max-width: 240px; }
+  .photo-overlay-card { right: -12px; bottom: -12px; }
+
+  .gestalt-grid { grid-template-columns: 1fr; gap: 14px; }
+  .pb-grid { grid-template-columns: 1fr; gap: 14px; }
+  .coaching-inner { grid-template-columns: 1fr; gap: 40px; }
+  .avis-grid { grid-template-columns: 1fr; gap: 14px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .diff-row { grid-template-columns: 1fr; gap: 8px; }
+  .avis-header-wrap { flex-direction: column; }
+
+  .container { padding: 0 20px; }
+  #a-propos, #la-gestalt, #accompagnement, #coaching, #avis, #contact { padding: 68px 0; }
+  footer { padding: 20px; flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 500px) {
+  .hero-name { font-size: 3.2rem; }
+  .pb-card { flex-direction: column; gap: 14px; }
+  .tarif-cards { flex-direction: column; }
+  .contact-form-zone { padding: 22px; }
+  .smiley-btn { width: 52px; height: 52px; font-size: 1.6rem; }
+  .smiley-row { gap: 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#accueil" class="nav-logo">
+    <span class="nav-logo-name">Clément PETIT</span>
+    <span class="nav-logo-sub">Thérapeute Gestalt · Paris 13e</span>
+  </a>
+  <ul class="nav-links" id="nav-menu">
+    <li><a href="#a-propos">À propos</a></li>
+    <li><a href="#la-gestalt">La Gestalt</a></li>
+    <li><a href="#accompagnement">Accompagnement</a></li>
+    <li><a href="#coaching">Coaching</a></li>
+    <li><a href="#avis">Avis</a></li>
+    <li><a href="#contact" class="nav-cta">Prendre RDV</a></li>
+  </ul>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="accueil">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Thérapeute Gestalt Certifié · Paris 13e</p>
+    <h1 class="hero-name">
+      Clément<br>
+      <strong>PETIT</strong>
+    </h1>
+    <p class="hero-subtitle">Psychothérapeute Gestalt &amp; Coach de vie professionnelle à Paris 13e</p>
+    <p class="hero-tagline">Un espace pour comprendre ce qui vous freine, traverser la souffrance au travail et retrouver du sens.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Prendre rendez-vous</a>
+      <a href="#accompagnement" class="btn-secondary">Mes accompagnements</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-info-card">
+      <p class="hic-label">Cabinet · 3 rue du Dr Lucas-Championnière · 75013</p>
+      <p>Séances individuelles en présentiel au 13e arrondissement — proche Place d'Italie, Butte-aux-Cailles, Gobelins — ou à distance.</p>
+      <div class="hero-info-item">Pour RDV : 80 €</div>
+      <div class="hero-info-item">Prise de RDV en ligne 24h/24</div>
+      <div class="hero-info-item">Séances en français &amp; anglais</div>
+      <div class="hero-info-item">Paris 13e · Proche Place d'Italie</div>
+    </div>
+  </div>
+</section>
+
+<!-- RESSENTI -->
+<section id="ressenti">
+  <div class="ressenti-inner">
+    <h2 class="ressenti-title">Comment vous sentez-vous actuellement ?</h2>
+    <p class="ressenti-sub">Choisissez ce qui vous correspond le mieux en ce moment</p>
+    <div class="smiley-row">
+      <div class="smiley-item" id="si-5">
+        <button class="smiley-btn" data-msg="msg5"><span class="smiley-face">😊</span></button>
+        <div class="smiley-label">Bien</div>
+      </div>
+      <div class="smiley-item" id="si-4">
+        <button class="smiley-btn" data-msg="msg4"><span class="smiley-face">🙂</span></button>
+        <div class="smiley-label">Ca va</div>
+      </div>
+      <div class="smiley-item" id="si-3">
+        <button class="smiley-btn" data-msg="msg3"><span class="smiley-face">😐</span></button>
+        <div class="smiley-label">Moyen</div>
+      </div>
+      <div class="smiley-item" id="si-2">
+        <button class="smiley-btn" data-msg="msg2"><span class="smiley-face">😔</span></button>
+        <div class="smiley-label">Difficile</div>
+      </div>
+      <div class="smiley-item" id="si-1">
+        <button class="smiley-btn" data-msg="msg1"><span class="smiley-face">😞</span></button>
+        <div class="smiley-label">Mal</div>
+      </div>
+    </div>
+    <div class="smiley-response" id="smiley-response"></div>
+  </div>
+</section>
+
+<!-- A PROPOS -->
+<section id="a-propos">
+  <div class="container">
+    <p class="apropos-label">A propos</p>
+    <div class="two-col">
+      <div class="about-photo-col">
+        <div class="about-photo-wrapper">
+          <img
+            src="Clément PETIT psychothérapeute Paris 13 Gestalt.jpg"
+            alt="Clément PETIT, psychothérapeute Gestalt à Paris 13e"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          >
+          <div class="about-photo-placeholder" style="display:none;">
+            Photo portrait à intégrer
+          </div>
+          <div class="photo-overlay-card">
+            <div class="poc-title">Qui<br>suis-je ?</div>
+          </div>
+        </div>
+        <div class="about-photo-tags">
+          <span class="tag">Gestalt-psychothérapie</span>
+          <span class="tag">Burn-out</span>
+          <span class="tag">Souffrance au travail</span>
+          <span class="tag">Anxiété &amp; stress</span>
+          <span class="tag">Paris 13e</span>
+        </div>
+        <p class="photo-caption">3 rue du Dr Lucas-Championnière · 75013 Paris</p>
+      </div>
+
+      <div class="about-text">
+        <div class="signature">Clément Petit</div>
+        <p>Psychothérapeute Gestalt et coach professionnel, je suis installé dans le 13e arrondissement de Paris.</p>
+        <p>J'accompagne les personnes confrontées à une souffrance liée au travail : épuisement, burn-out, perte de sens, anxiété chronique ou tensions relationnelles.</p>
+        <p>Ma pratique s'appuie sur la Gestalt-thérapie, une approche humaniste centrée sur la conscience de soi, les émotions et la relation. Ici, il ne s'agit pas de corriger un symptôme, mais de comprendre ce que votre corps, votre fatigue ou votre anxiété tentent d'exprimer.</p>
+        <p>Mon approche est à la fois sensible, structurée et ancrée dans le réel. Le travail thérapeutique se construit ensemble, à votre rythme, dans un cadre confidentiel et sécurisant.</p>
+        <div class="certif-block">
+          <h4>Formation &amp; certifications</h4>
+          <ul>
+            <li>Certification Gestalt-psychothérapie — IFFP GESTALT</li>
+            <li>Coach de vie professionnelle certifié</li>
+            <li>Membre de la FF2P</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LA GESTALT -->
+<section id="la-gestalt">
+  <div class="container">
+    <p class="gestalt-label">La Gestalt Therapie</p>
+    <h2 class="gestalt-main-title">Comprendre la Gestalt</h2>
+    <p class="gestalt-intro">Une approche humaniste qui travaille sur le présent, la relation et la conscience de ce qui se passe en vous — ici et maintenant, dans toute votre complexité.</p>
+    <div class="gestalt-grid">
+      <div class="gestalt-card">
+        <div class="gestalt-card-icon">🔍</div>
+        <h3>Qu'est-ce que la Gestalt ?</h3>
+        <p>La Gestalt-psychothérapie s'intéresse à votre expérience du moment présent : vos émotions, vos besoins, vos schémas relationnels. Elle ne cherche pas à vous réparer — elle vous aide à mieux vous comprendre et à agir différemment. Particulièrement indiquée pour l'anxiété, la souffrance au travail et la perte de sens.</p>
+      </div>
+      <div class="gestalt-card">
+        <div class="gestalt-card-icon">⚖️</div>
+        <h3>Gestalt vs Psychanalyse</h3>
+        <p>Contrairement à la psychanalyse, la Gestalt ne plonge pas uniquement dans le passé. Elle privilégie l'expérience vivante de la relation, le corps, les émotions et ce qui se joue dans la séance elle-même. Une psychothérapie active, incarnée, profondément respectueuse de votre rythme.</p>
+      </div>
+      <div class="gestalt-card">
+        <div class="gestalt-card-icon">📅</div>
+        <h3>Pour qui ? Combien de séances ?</h3>
+        <p>Pour toute personne souhaitant mieux se comprendre, sortir d'une impasse ou traverser une période difficile. Le rythme est adapté à votre situation : de quelques séances ciblées à un suivi au long cours, en présentiel à Paris 13e ou à distance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCOMPAGNEMENT -->
+<section id="accompagnement">
+  <div class="container">
+    <p class="section-label">Accompagnement psychothérapeutique</p>
+    <h2 class="section-title">Situations accompagnées<br>en psychothérapie</h2>
+    <div class="pb-grid">
+      <div class="pb-card">
+        <div class="pb-icon">🔥</div>
+        <div class="pb-content">
+          <h3>Burn-out &amp; épuisement professionnel</h3>
+          <p>Vous vous sentez vidé, débordé, sans ressources. La psychothérapie Gestalt vous aide à comprendre ce qui vous a conduit là, à reconnecter avec vos besoins réels et à reconstruire un rapport au travail plus juste — sans vous perdre de vue.</p>
+        </div>
+      </div>
+      <div class="pb-card">
+        <div class="pb-icon">🧭</div>
+        <div class="pb-content">
+          <h3>Perte de sens &amp; transitions professionnelles</h3>
+          <p>Reconversion, remise en question profonde, sentiment d'à quoi ca sert — ces moments de bascule nécessitent un espace de pensée protégé pour clarifier ce qui compte vraiment.</p>
+        </div>
+      </div>
+      <div class="pb-card">
+        <div class="pb-icon">🤝</div>
+        <div class="pb-content">
+          <h3>Relations professionnelles difficiles</h3>
+          <p>Conflits récurrents, incompréhensions, difficulté à s'affirmer ou à poser des limites avec sa hiérarchie ou ses collègues. Un accompagnement pour retrouver une juste place au travail.</p>
+        </div>
+      </div>
+      <div class="pb-card">
+        <div class="pb-icon">🌊</div>
+        <div class="pb-content">
+          <h3>Anxiété &amp; stress chronique</h3>
+          <p>L'anxiété chronique s'installe quand quelque chose en vous ne trouve pas de résolution. Ensemble, nous travaillons sur ce qui génère cette tension persistante pour retrouver un ancrage intérieur stable.</p>
+        </div>
+      </div>
+    </div>
+    <div class="pb-cta-wrap">
+      <a href="#contact" class="btn-primary">Prendre rendez-vous à Paris 13e</a>
+    </div>
+  </div>
+</section>
+
+<!-- COACHING -->
+<section id="coaching">
+  <div class="container">
+    <div class="coaching-inner">
+      <div class="coaching-text">
+        <p class="section-label" style="color:rgba(255,255,255,0.5)">Coaching professionnel</p>
+        <h2 class="section-title" style="color:var(--white)">Coach de vie professionnelle certifié</h2>
+        <p>Le coaching est distinct de la psychothérapie : il est orienté vers l'action, les objectifs concrets et le déploiement de vos ressources. Je propose les deux modalités, et nous déterminons ensemble ce dont vous avez besoin.</p>
+        <ul class="coaching-list">
+          <li><span class="num">1</span>Clarifier un projet professionnel ou une reconversion de carrière</li>
+          <li><span class="num">2</span>Développer confiance en soi, affirmation de soi et leadership</li>
+          <li><span class="num">3</span>Traverser une transition : promotion, départ, création d'activité</li>
+          <li><span class="num">4</span>Reprendre la main sur l'équilibre vie professionnelle / personnelle</li>
+        </ul>
+      </div>
+      <div>
+        <p class="diff-label">Psychothérapie Gestalt vs Coaching</p>
+        <div class="diff-table">
+          <div class="diff-row">
+            <div class="diff-cell header">Psychothérapie Gestalt</div>
+            <div class="diff-cell header">Coaching professionnel</div>
+          </div>
+          <div class="diff-row">
+            <div class="diff-cell">Travail en profondeur : émotions, schémas, histoire personnelle</div>
+            <div class="diff-cell">Orienté objectifs, actions concrètes et résultats visibles</div>
+          </div>
+          <div class="diff-row">
+            <div class="diff-cell">Durée variable, rythmée par le processus thérapeutique</div>
+            <div class="diff-cell">Formats courts et ciblés possibles</div>
+          </div>
+          <div class="diff-row">
+            <div class="diff-cell">Accueille la souffrance, la complexité, l'ambivalence</div>
+            <div class="diff-cell">Mobilise les ressources et compétences existantes</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AVIS -->
+<section id="avis">
+  <div class="container">
+    <div class="avis-header-wrap">
+      <div>
+        <p class="section-label">Avis patients</p>
+        <h2 class="section-title" style="margin-bottom:0">Ce qu'ils en disent</h2>
+      </div>
+      <div class="avis-score-card">
+        <div class="avis-score-num">5.0</div>
+        <div>
+          <div class="avis-score-stars">★★★★★</div>
+          <div class="avis-score-label">Note Google · 12 avis</div>
+        </div>
+      </div>
+    </div>
+    <div class="avis-grid">
+      <div class="avis-card">
+        <svg class="avis-google-badge" viewBox="0 0 24 24" fill="none">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+        </svg>
+        <div class="avis-stars">★★★★★</div>
+        <p class="avis-text">Un accompagnement profond et bienveillant. Clément crée un espace de confiance rare, où l'on peut vraiment se dire les choses. Une expérience transformatrice.</p>
+        <div class="avis-author">
+          <div class="avis-avatar">M</div>
+          <div><div class="avis-name">Marie L.</div><div class="avis-date">Il y a 2 semaines</div></div>
+        </div>
+      </div>
+      <div class="avis-card">
+        <svg class="avis-google-badge" viewBox="0 0 24 24" fill="none">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+        </svg>
+        <div class="avis-stars">★★★★★</div>
+        <p class="avis-text">Je traversais un burn-out sévère. En quelques mois de suivi, j'ai pu comprendre ce qui s'était passé et retrouver une clarté que je pensais avoir perdue définitivement.</p>
+        <div class="avis-author">
+          <div class="avis-avatar">T</div>
+          <div><div class="avis-name">Thomas B.</div><div class="avis-date">Il y a 1 mois</div></div>
+        </div>
+      </div>
+      <div class="avis-card">
+        <svg class="avis-google-badge" viewBox="0 0 24 24" fill="none">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+        </svg>
+        <div class="avis-stars">★★★★★</div>
+        <p class="avis-text">La double approche thérapie et coaching m'a permis à la fois de comprendre mes blocages et de passer à l'action. Cabinet facilement accessible dans le 13e.</p>
+        <div class="avis-author">
+          <div class="avis-avatar">S</div>
+          <div><div class="avis-name">Sophie M.</div><div class="avis-date">Il y a 2 mois</div></div>
+        </div>
+      </div>
+    </div>
+    <p class="avis-note">Ces avis sont issus de Google. <a href="#" target="_blank">Laisser un avis</a></p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label" style="color:rgba(255,255,255,0.45)">Contact &amp; RDV</p>
+    <h2 class="section-title" style="color:var(--white)">Faire le premier pas</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Informations pratiques</h3>
+        <div class="info-row">
+          <span class="icon">📍</span>
+          <div class="info-text">3 rue du Dr Lucas-Championnière<br>75013 Paris<br><small>Place d'Italie · Gobelins · Maison Blanche</small></div>
+        </div>
+        <div class="info-row">
+          <span class="icon">🗓</span>
+          <div class="info-text">Prise de RDV en ligne 24h/24</div>
+        </div>
+        <div class="info-row">
+          <span class="icon">💬</span>
+          <div class="info-text">Séances en français &amp; en anglais<br><small>Sessions available in English</small></div>
+        </div>
+        <div class="info-row">
+          <span class="icon">💻</span>
+          <div class="info-text">Présentiel (Paris 13e) &amp; visio<br><small>Selon disponibilités</small></div>
+        </div>
+        <div class="tarif-cards">
+          <div class="tarif-card">
+            <div class="price">80 €</div>
+            <div class="price-label">Séance individuelle<br>50 minutes</div>
+          </div>
+          <div class="tarif-card">
+            <div class="price">40 €</div>
+            <div class="price-label">Première séance<br>découverte</div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-zone">
+        <h3>Prendre rendez-vous</h3>
+        <p class="sub">Remplissez ce formulaire et je vous recontacte sous 48h.</p>
+        <div class="form-group">
+          <label>Prénom &amp; Nom</label>
+          <input type="text" placeholder="Ex. : Marie Dupont">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="votre@email.com">
+        </div>
+        <div class="form-group">
+          <label>Ce qui vous amène (optionnel)</label>
+          <select>
+            <option value="">— Sélectionner —</option>
+            <option>Burn-out / épuisement professionnel</option>
+            <option>Perte de sens / transition de carrière</option>
+            <option>Relations professionnelles difficiles</option>
+            <option>Anxiété / stress chronique</option>
+            <option>Coaching professionnel</option>
+            <option>Autre</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message (optionnel)</label>
+          <textarea placeholder="Quelques mots sur votre situation si vous le souhaitez..."></textarea>
+        </div>
+        <button class="rdv-cta">Envoyer ma demande</button>
+        <p class="rgpd-note">Vos données sont utilisées uniquement pour vous recontacter. RGPD — suppression sur demande.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-name">Clément PETIT · Psychothérapeute Gestalt &amp; Coach · Paris 13e</div>
+  <div class="f-links">
+    <a href="#accueil">Accueil</a>
+    <a href="#a-propos">À propos</a>
+    <a href="#accompagnement">Accompagnement</a>
+    <a href="#avis">Avis</a>
+    <a href="#contact">Contact</a>
+    <a href="#">Mentions légales</a>
+    <a href="#">Confidentialité</a>
+  </div>
+  <div class="f-copy">© 2025 Clément PETIT · Tous droits réservés</div>
+</footer>
+
+<script>
+var msgs = {
+  msg5: "C'est une belle nouvelle. Vous pouvez tout de meme trouver en therapie un espace pour mieux vous connaitre et vous ancrer davantage.",
+  msg4: "Vous tenez, mais quelque chose vous pese. Mettre des mots dessus est souvent le premier pas.",
+  msg3: "Entre les deux. Ce flottement merite votre attention — vous n'avez pas a attendre que ca aille plus mal.",
+  msg2: "C'est difficile en ce moment. Vous n'etes pas seul — prendre rendez-vous peut etre le geste le plus courageux.",
+  msg1: "Je vous entends. C'est exactement pour ces moments-la qu'un accompagnement existe. Vous meritez d'etre soutenu."
+};
+
+var smileys = document.querySelectorAll('.smiley-btn');
+var responseBox = document.getElementById('smiley-response');
+smileys.forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    smileys.forEach(function(b) {
+      b.classList.remove('selected');
+      b.closest('.smiley-item').classList.remove('active');
+    });
+    btn.classList.add('selected');
+    btn.closest('.smiley-item').classList.add('active');
+    responseBox.textContent = msgs[btn.getAttribute('data-msg')];
+    responseBox.style.display = 'block';
+  });
+});
+
+var sections = document.querySelectorAll('section[id]');
+var navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      navLinks.forEach(function(l) { l.classList.remove('active'); });
+      var a = document.querySelector('.nav-links a[href="#' + entry.target.id + '"]');
+      if (a) a.classList.add('active');
+    }
+  });
+}, { rootMargin: '-40% 0px -55% 0px' });
+sections.forEach(function(s) { obs.observe(s); });
+
+var toggle = document.getElementById('nav-toggle');
+var menu = document.getElementById('nav-menu');
+toggle.addEventListener('click', function() {
+  var open = menu.classList.toggle('open');
+  toggle.classList.toggle('open', open);
+  toggle.setAttribute('aria-expanded', open);
+});
+menu.querySelectorAll('a').forEach(function(link) {
+  link.addEventListener('click', function() {
+    menu.classList.remove('open');
+    toggle.classList.remove('open');
+    toggle.setAttribute('aria-expanded', false);
+  });
+});
+</script>
+</body>
+</html>
