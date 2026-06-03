@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mentions légales - Clément PETIT</title>
+<style>
+:root {
+  --ivory:      #F5F0E8;
+  --ivory-lt:   #FAF7F2;
+  --sage-dk:    #3D5C4E;
+  --sage:       #4A6B5D;
+  --sage-mid:   #5C7A6B;
+  --sage-lt:    #8AA898;
+  --sage-xs:    #E8EEE9;
+  --anthracite: #2C2C2C;
+  --slate:      #3A4A58;
+  --copper:     #B07D62;
+  --white:      #FFFFFF;
+  --text:       #3C3C3C;
+  --muted:      #6B7470;
+  --nav-h:      64px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background: var(--ivory);
+  overflow-x: hidden;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--nav-h);
+  background: var(--anthracite);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  z-index: 1000;
+}
+.nav-logo {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+.nav-logo-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+}
+.nav-logo-sub {
+  font-size: 0.58rem;
+  font-weight: 400;
+  color: var(--sage-lt);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  align-items: center;
+}
+.nav-links a {
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--white); }
+.nav-links a.active { color: var(--white); }
+.nav-cta {
+  background: var(--sage) !important;
+  color: var(--white) !important;
+  padding: 8px 18px;
+  border-radius: 4px;
+  font-weight: 400 !important;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--sage-mid) !important; }
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+.nav-toggle span {
+  display: block; width: 22px; height: 1.5px;
+  background: rgba(255,255,255,0.7);
+  transition: all 0.3s; border-radius: 2px;
+}
+.nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+section { scroll-margin-top: var(--nav-h); }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
+
+/* FOOTER */
+footer {
+  background: #1C1E1F;
+  padding: 26px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+footer .f-name { font-family: 'Cormorant Garamond', serif; font-size: 0.92rem; color: rgba(255,255,255,0.4); font-weight: 300; }
+footer .f-links { display: flex; gap: 20px; flex-wrap: wrap; }
+footer .f-links a { font-size: 0.65rem; color: rgba(255,255,255,0.3); text-decoration: none; letter-spacing: 0.05em; transition: color 0.2s; }
+footer .f-links a:hover { color: rgba(255,255,255,0.65); }
+footer .f-copy { font-size: 0.62rem; color: rgba(255,255,255,0.25); }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  nav { padding: 0 20px; }
+  .nav-links {
+    display: none; flex-direction: column;
+    position: fixed; top: var(--nav-h); left: 0; right: 0;
+    background: rgba(44,44,44,0.97);
+    padding: 18px 20px 24px; gap: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-links.open { display: flex; }
+  .nav-links li { width: 100%; }
+  .nav-links a { display: block; padding: 12px 0; font-size: 0.78rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .nav-cta { margin-top: 12px; padding: 10px 18px; text-align: center; border-radius: 4px; border-bottom: none !important; }
+  .nav-toggle { display: flex; }
+
+  #accueil { grid-template-columns: 1fr; }
+  .hero-left { padding: calc(var(--nav-h) + 44px) 24px 60px; }
+  .hero-right { display: none; }
+
+  .two-col { grid-template-columns: 1fr; gap: 40px; }
+  .about-photo-col { max-width: 240px; }
+  .photo-overlay-card { right: -12px; bottom: -12px; }
+
+  .gestalt-grid { grid-template-columns: 1fr; gap: 14px; }
+  .pb-grid { grid-template-columns: 1fr; gap: 14px; }
+  .coaching-inner { grid-template-columns: 1fr; gap: 40px; }
+  .avis-grid { grid-template-columns: 1fr; gap: 14px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .diff-row { grid-template-columns: 1fr; gap: 8px; }
+  .avis-header-wrap { flex-direction: column; }
+
+  .container { padding: 0 20px; }
+  #a-propos, #la-gestalt, #accompagnement, #coaching, #avis, #contact { padding: 68px 0; }
+  footer { padding: 20px; flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 500px) {
+  .hero-name { font-size: 3.2rem; }
+  .pb-card { flex-direction: column; gap: 14px; }
+  .tarif-cards { flex-direction: column; }
+  .contact-form-zone { padding: 22px; }
+  .smiley-btn { width: 52px; height: 52px; font-size: 1.6rem; }
+  .smiley-row { gap: 10px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html#accueil" class="nav-logo">
+    <span class="nav-logo-name">Clément PETIT</span>
+    <span class="nav-logo-sub">Praticien en Psychothérapie Gestlat · Paris 13e</span>
+  </a>
+  <ul class="nav-links" id="nav-menu">
+    <li><a href="index.html#a-propos">À propos</a></li>
+    <li><a href="index.html#la-gestalt">La Gestalt</a></li>
+    <li><a href="index.html#accompagnement">Accompagnement</a></li>
+    <li><a href="index.html#coaching">Coaching</a></li>
+    <li><a href="index.html#avis">Avis</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Prendre RDV</a></li>
+  </ul>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<section style="padding-top:120px;padding-bottom:80px;background:var(--ivory);">
+<div class="container" style="max-width:900px;">
+<h1 class="section-title">Mentions légales</h1>
+
+<h2>Éditeur du site internet</h2>
+<p><strong>Personne physique :</strong> Clément PETIT<br>
+<strong>Nom commercial :</strong> Clément Petit Coaching Professionnel<br>
+<strong>Adresse :</strong> 15 rue du Dr Lucas-Championnière, 75013 Paris<br>
+<strong>Numéro SIRET :</strong> 889 275 525 00018</p>
+<br>
+<br>
+<h2>Responsable de la publication</h2>
+<p><strong>Directeur de la publication :</strong> Clément PETIT<br>
+<strong>Responsable de la rédaction :</strong> Clément PETIT</p>
+<br>
+<br>
+<h2>Hébergement</h2>
+<p><strong>OVH SAS</strong><br>
+2 rue Kellermann – 59100 Roubaix – France<br>
+Téléphone : 1007</p>
+<p>Les infrastructures d'hébergement et de sauvegarde peuvent être localisées dans différents centres de données exploités par OVHcloud, notamment en France et dans d'autres pays conformément à sa politique d'hébergement et aux réglementations applicables.</p>
+<br>
+<br>
+<h2>Protection des données personnelles</h2>
+<p>La protection de vos données personnelles est une priorité pour Clément PETIT.</p>
+<p>Les informations recueillies via les formulaires présents sur ce site sont destinées exclusivement à permettre le traitement des demandes de contact, d'information ou d'accompagnement formulées par les utilisateurs.</p>
+<p>Les données collectées ne sont utilisées que dans le cadre de l'activité professionnelle de Clément PETIT. Elles ne sont ni vendues, ni louées, ni cédées à des tiers à des fins commerciales.</p>
+<p>Les données personnelles sont conservées pendant une durée limitée et strictement nécessaire aux finalités pour lesquelles elles ont été collectées, sauf obligation légale imposant une durée de conservation plus longue.</p>
+<p>Conformément au RGPD et à la loi Informatique et Libertés modifiée, vous disposez des droits d'accès, de rectification, d'effacement, de limitation du traitement, d'opposition et de portabilité de vos données lorsque celui-ci est applicable.</p>
+<p>Pour exercer ces droits ou pour toute question relative au traitement de vos données personnelles :</p>
+<p><strong>Clément PETIT</strong><br>
+15 rue du Dr Lucas-Championnière<br>
+75013 Paris</p>
+<br>
+<br>
+<h2>Gestion des cookies</h2>
+<p>Le site peut utiliser des cookies ou technologies similaires afin d'assurer son bon fonctionnement, de mesurer son audience et d'améliorer l'expérience utilisateur.</p>
+<p>Un cookie est un petit fichier texte déposé sur votre terminal lors de votre navigation.</p>
+<p>Selon leur finalité, certains cookies sont strictement nécessaires au fonctionnement du site et ne nécessitent pas votre consentement. D'autres cookies, notamment ceux destinés à la mesure d'audience ou à l'amélioration des services proposés, ne sont déposés qu'après obtention de votre consentement lorsque celui-ci est requis par la réglementation.</p>
+<p>Vous pouvez à tout moment accepter, refuser ou modifier vos préférences concernant les cookies via le bandeau de gestion des cookies affiché lors de votre première visite sur le site.</p>
+<br>
+<br>
+<h2>Propriété intellectuelle</h2>
+<p>L'ensemble des éléments présents sur ce site, notamment les textes, contenus, logos, graphismes, photographies, illustrations, vidéos, icônes et éléments de mise en page, sont protégés par les dispositions du Code de la propriété intellectuelle.</p>
+<p>Sauf autorisation écrite préalable de Clément PETIT, toute reproduction, représentation, modification, publication, adaptation ou exploitation, totale ou partielle, des éléments du site est interdite.</p>
+<br>
+<br>
+<h2>Crédits photographiques</h2>
+<p>Les photographies, illustrations et visuels présents sur ce site sont la propriété de leurs auteurs respectifs.</p>
+<p>Ils peuvent provenir de créations originales, de banques d'images sous licence ou de ressources libres de droits utilisées conformément à leurs conditions d'utilisation.</p>
+<br>
+<br>
+<h2>Responsabilité</h2>
+<p>Les informations publiées sur ce site sont fournies à titre informatif.</p>
+<p>Clément PETIT s'efforce d'assurer l'exactitude et la mise à jour des informations diffusées, mais ne saurait garantir l'absence d'erreurs, d'omissions ou d'indisponibilités temporaires.</p>
+<br>
+<br>
+<h2>Mise à jour</h2>
+<p>Dernière mise à jour : 3 juin 2026.</p>
+</div>
+</section>
+
+
+<footer>
+  <div class="f-name">Clément PETIT · Praticien en Psychothérapie Gestlat &amp; Coach · Paris 13e</div>
+  <div class="f-links">
+    <a href="index.html">Accueil</a>
+    <a href="index.html#a-propos">À propos</a>
+    <a href="index.html#accompagnement">Accompagnement</a>
+    <a href="index.html#avis">Avis</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="#">Mentions légales</a>
+    <a href="deontologie.html">Déontologie</a>
+  </div>
+</footer>
+</body>
+</html>
