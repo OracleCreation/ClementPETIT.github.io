@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mentions légales - Clément PETIT</title>
+<style>
+:root {
+  --ivory:      #F5F0E8;
+  --ivory-lt:   #FAF7F2;
+  --sage-dk:    #3D5C4E;
+  --sage:       #4A6B5D;
+  --sage-mid:   #5C7A6B;
+  --sage-lt:    #8AA898;
+  --sage-xs:    #E8EEE9;
+  --anthracite: #2C2C2C;
+  --slate:      #3A4A58;
+  --copper:     #B07D62;
+  --white:      #FFFFFF;
+  --text:       #3C3C3C;
+  --muted:      #6B7470;
+  --nav-h:      64px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background: var(--ivory);
+  overflow-x: hidden;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--nav-h);
+  background: var(--anthracite);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  z-index: 1000;
+}
+.nav-logo {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+.nav-logo-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+}
+.nav-logo-sub {
+  font-size: 0.58rem;
+  font-weight: 400;
+  color: var(--sage-lt);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  align-items: center;
+}
+.nav-links a {
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--white); }
+.nav-links a.active { color: var(--white); }
+.nav-cta {
+  background: var(--sage) !important;
+  color: var(--white) !important;
+  padding: 8px 18px;
+  border-radius: 4px;
+  font-weight: 400 !important;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--sage-mid) !important; }
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+.nav-toggle span {
+  display: block; width: 22px; height: 1.5px;
+  background: rgba(255,255,255,0.7);
+  transition: all 0.3s; border-radius: 2px;
+}
+.nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+section { scroll-margin-top: var(--nav-h); }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
+
+/* FOOTER */
+footer {
+  background: #1C1E1F;
+  padding: 26px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+footer .f-name { font-family: 'Cormorant Garamond', serif; font-size: 0.92rem; color: rgba(255,255,255,0.4); font-weight: 300; }
+footer .f-links { display: flex; gap: 20px; flex-wrap: wrap; }
+footer .f-links a { font-size: 0.65rem; color: rgba(255,255,255,0.3); text-decoration: none; letter-spacing: 0.05em; transition: color 0.2s; }
+footer .f-links a:hover { color: rgba(255,255,255,0.65); }
+footer .f-copy { font-size: 0.62rem; color: rgba(255,255,255,0.25); }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  nav { padding: 0 20px; }
+  .nav-links {
+    display: none; flex-direction: column;
+    position: fixed; top: var(--nav-h); left: 0; right: 0;
+    background: rgba(44,44,44,0.97);
+    padding: 18px 20px 24px; gap: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-links.open { display: flex; }
+  .nav-links li { width: 100%; }
+  .nav-links a { display: block; padding: 12px 0; font-size: 0.78rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .nav-cta { margin-top: 12px; padding: 10px 18px; text-align: center; border-radius: 4px; border-bottom: none !important; }
+  .nav-toggle { display: flex; }
+
+  #accueil { grid-template-columns: 1fr; }
+  .hero-left { padding: calc(var(--nav-h) + 44px) 24px 60px; }
+  .hero-right { display: none; }
+
+  .two-col { grid-template-columns: 1fr; gap: 40px; }
+  .about-photo-col { max-width: 240px; }
+  .photo-overlay-card { right: -12px; bottom: -12px; }
+
+  .gestalt-grid { grid-template-columns: 1fr; gap: 14px; }
+  .pb-grid { grid-template-columns: 1fr; gap: 14px; }
+  .coaching-inner { grid-template-columns: 1fr; gap: 40px; }
+  .avis-grid { grid-template-columns: 1fr; gap: 14px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .diff-row { grid-template-columns: 1fr; gap: 8px; }
+  .avis-header-wrap { flex-direction: column; }
+
+  .container { padding: 0 20px; }
+  #a-propos, #la-gestalt, #accompagnement, #coaching, #avis, #contact { padding: 68px 0; }
+  footer { padding: 20px; flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 500px) {
+  .hero-name { font-size: 3.2rem; }
+  .pb-card { flex-direction: column; gap: 14px; }
+  .tarif-cards { flex-direction: column; }
+  .contact-form-zone { padding: 22px; }
+  .smiley-btn { width: 52px; height: 52px; font-size: 1.6rem; }
+  .smiley-row { gap: 10px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html#accueil" class="nav-logo">
+    <span class="nav-logo-name">Clément PETIT</span>
+    <span class="nav-logo-sub">Praticien en Psychothérapie Gestlat · Paris 13e</span>
+  </a>
+  <ul class="nav-links" id="nav-menu">
+    <li><a href="index.html#a-propos">À propos</a></li>
+    <li><a href="index.html#la-gestalt">La Gestalt</a></li>
+    <li><a href="index.html#accompagnement">Accompagnement</a></li>
+    <li><a href="index.html#coaching">Coaching</a></li>
+    <li><a href="index.html#avis">Avis</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Prendre RDV</a></li>
+  </ul>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<section style="padding-top:120px;padding-bottom:80px;background:var(--ivory);">
+<div class="container" style="max-width:900px;">
+<h1 class="section-title">Déontologie</h1>
+
+
+<p>Le terme « praticiens de la psychothérapie » regroupe dans la Fédération Française de Psychothérapie et Psychanalyse les praticiens de la psychothérapie formés et pratiquant des méthodes de psychothérapie reconnues par la FF2P, qu’ils soient psychopraticiens, psychothérapeutes, psychanalystes, psychologues ou psychiatres. Les organismes et les praticiens de la psychothérapie membres de la FF2P : formateurs, étudiants et membres adhérents des associations adhérentes de la FF2P, sont dans l’obligation de prêter une attention toute particulière aux questions d’éthique et de déontologie. Les praticiens de la psychothérapie respectent la dignité et la valeur de l’individu. Ils luttent pour la préservation et la protection des droits humains fondamentaux, de l’intégrité psychique et physique ainsi que pour le bien-être de ceux qui font appel à leurs services en mettant en œuvre tous les moyens nécessaires à la réalisation de ces objectifs. Ils sont tenus d’utiliser leurs compétences, de penser et d’analyser leur pratique uniquement à des fins conformes au respect des valeurs éthiques et morales, en tenant compte de la complexité humaine ainsi que des normes législatives et des interdictions. Ils s’engagent à accroître les connaissances sur le comportement humain, sur la compréhension de soi-même et des autres et sur l’utilisation de ces connaissances pour la promotion du bien-être de l’humanité. Les praticiens de la psychothérapie respectent les autres membres de leur profession et des professions connexes. Les praticiens de la psychothérapie coopèrent pleinement avec leurs propres organisations et associations professionnelles, nationales et européennes, et avec l’Association Européenne de Psychothérapie (EAP) et répondent rapidement et complètement aux demandes de renseignements et aux exigences de toute association professionnelle dont ils sont membres ou de tout comité d’éthique auxquels ils appartiennent. Dans la poursuite de ces idéaux, les praticiens de la psychothérapie souscrivent à des principes éthiques et déontologiques précis dans les domaines ci-après listés :
+<br>
+<br>
+- Responsabilité<br>
+- Compétence<br>
+- Valeurs morales et normes juridiques<br>
+- Confidentialité<br>
+- Protection du client<br>
+- Relations professionnelles<br>
+- Déclarations publiques<br>
+- Techniques d’évaluation<br>
+- Sanctions</p>
+<br>
+<br>
+<h2>RESPONSABILITÉ</h2>
+<p>Principe général : Dans l’exercice de leurs fonctions, les praticiens de la psychothérapie s’engagent à maintenir les plus hauts standards de leur profession. Ils acceptent la responsabilité des conséquences de leurs actes et font tout pour s’assurer que leurs services sont utilisés de manière appropriée.
+<br><br>
+Art. 1a : En tant que praticiens, les praticiens de la psychothérapie savent qu’ils portent une lourde responsabilité sociale parce que leurs recommandations et actions professionnelles peuvent modifier la vie des autres. Ils sont à l’affût des situations et des pressions personnelles, sociales, organisationnelles, financières,
+environnementales ou politiques qui pourraient conduire à une mauvaise utilisation de leur influence.
+<br><br>
+Art. 1b : Les praticiens de la psychothérapie clarifient à l’avance avec leurs clients toutes les questions qui pourraient concerner leur collaboration. Ils évitent les relations qui pourraient limiter leur objectivité ou déboucher sur un conflit d’intérêts.
+<br><br>
+Art. 1c : Les praticiens de la psychothérapie ont la responsabilité de tenter de prévenir la distorsion, l’usage abusif ou la suppression de leurs conclusions par une institution ou un organisme dont ils seraient employés
+<br><br>
+Art. 1d : Enseignants ou formateurs, les praticiens de la psychothérapie reconnaissent leur obligation primaire d’aider les autres à acquérir des connaissances et des compétences. Ils maintiennent une haute qualité d’enseignement en présentant une information objective, complète et précise.
+<br><br>
+Art. 1e : Les praticiens de la psychothérapie sont responsables de la sélection de leurs thèmes de recherche et des méthodes utilisées pour l’enquête, l’analyse et le compte-rendu. Ils planifient leurs recherches de manière à ce que les résultats soient statistiquement représentatifs. Ils suscitent une discussion approfondie sur les limites de leurs résultats, en particulier lorsque leur travail touche à la politique sociale ou pourrait être interprété au détriment de personnes appartenant à une classe d’âge, de sexe, d’origine ethnique, socio-économique, ou à d’autres groupes sociaux. En publiant des rapports sur leur travail, ils ne suppriment jamais de données qui infirmeraient leurs thèses, et reconnaissent l’existence d’autres hypothèses et d’autres interprétations de leurs résultats. Les praticiens de la psychothérapie ne revendiquent que les seules études qu’ils ont réellement conduites. Ils définissent à l’avance avec les personnes et les agences compétentes ce que l’on peut attendre en partageant et en utilisant les résultats de leurs recherches. Les interférences avec le milieu dans lequel ces données sont collectées sont réduites au minimum.</p>
+<br>
+<br>
+<h2>COMPÉTENCE</h2>
+<p>Principe général : Le maintien de normes élevées de compétence est une responsabilité partagée par tous les praticiens de la psychothérapie dans l’intérêt du public et dans celui de la profession dans son ensemble. Les praticiens de la psychothérapie reconnaissent les limites de leur compétence et les limites de leurs méthodes. Ils ne fournissent de services et n’utilisent que des techniques pour lesquelles ils sont qualifiés par leur formation et leur expérience. Ils se tiennent au courant des dernières connaissances sur la santé et des informations scientifiques et professionnelles relatives aux services qu’ils rendent.
+<br><br>
+Art. 2a : Les praticiens de la psychothérapie sont transparents sur leur compétence, leur formation et leur expérience. Ils avancent pour preuve de leur formation pédagogique et professionnelle les seuls diplômes ou titres obtenus d’institutions réputées pour la qualité de leur enseignement ou reconnues par la FF2P. Ils veillent à observer les normes professionnelles minimales fixées par la FF2P, celles fixées par leurs structures de certification tant dans leurs méthodes que dans leurs modalités. Ils respectent les autres sources d’enseignement, de formation et d’expérience qui les ont nourris.
+<br><br>
+Art. 2b : En tant que praticiens, enseignants ou formateurs, les praticiens de la psychothérapie exercent leur métier sur la base d’une préparation minutieuse afin que leur pratique soit au plus haut niveau et que leurs communications soient exactes, à jour et pertinentes.
+<br><br>
+Art. 2c : Les praticiens de la psychothérapie reconnaissent la nécessité du travail sur soi, de la supervision et de la formation continue, et sont ouverts à de nouvelles procédures et à l’évolution des attentes et des valeurs sociétales.
+<br><br>
+Art. 2d : Les praticiens de la psychothérapie tiennent compte des différences entre les personnes, comme celles qui peuvent être associées à l’âge, au sexe, à la situation socio-économique, à l’origine ethnique, afin de s’assurer d’avoir la formation adéquate pour garantir un service approprié et ciblé à proposer à ces personnes.
+<br><br>
+Art. 2e : Les praticiens de la psychothérapie responsables de décisions concernant des personnes ou des politiques basées sur les résultats de leurs études ont une bonne compréhension des modalités de mesure psychologique ou pédagogique, des problèmes de validation et de test de recherche.
+<br><br>
+Art. 2f : Les praticiens de la psychothérapie reconnaissent que les problèmes et les conflits personnels peuvent interférer avec leur efficacité professionnelle. En conséquence, ils s’abstiennent d’entreprendre toute action dans laquelle leurs problèmes personnels seraient susceptibles de conduire à des performances insuffisantes ou de nuire à un client, à un collègue, à un étudiant ou à un participant à une étude. S’ils sont engagés dans une telle action quand ils prennent conscience de leurs problèmes personnels, ils cherchent un professionnel compétent pour les aider à déterminer s’ils doivent suspendre, annuler ou limiter la portée de leurs activités professionnelles.
+<br><br>
+Art. 2g : Les praticiens de la psychothérapie entrant dans de nouveaux domaines d’activité s’assurent qu’ils ont rempli toutes les exigences de formation et de qualification professionnelle liées à ce domaine d’activité avant de se lancer dans de telles pratiques. Ils s’assurent qu’il n’y a pas de confusion ou de conflit avec une activité en cours.</p>
+<br>
+<br>
+<h2>VALEURS MORALES ET NORMES JURIDIQUES</h2>
+<p>Principe général : Les valeurs et normes morales, éthiques et juridiques qui régissent le comportement des praticiens de la psychothérapie sont une affaire personnelle au même titre qu’elles le sont pour tout citoyen sauf lorsque celles-ci peuvent compromettre l’exercice de leurs responsabilités professionnelles ou porter atteinte à la confiance que le public accorde à la psychothérapie et aux praticiens de la psychothérapie. En ce qui concerne leur propre comportement, les praticiens de la psychothérapie doivent tenir compte des normes communautaires en vigueur et doivent rester sensibles à l’impact possible que la conformité ou l’écart par rapport à ces normes peut avoir sur la qualité de leur performance en tant que praticiens de la psychothérapie. Ils restent conscients de l’impact possible de leur comportement public.
+<br><br>
+Art. 3a : En tant que professionnels, les praticiens de la psychothérapie agissent en accord avec les principes et les normes de la FF2P et de l’EAP, ceux de leur organisation nationale de certification et ceux de l’institut ou de l’association relatifs à leur pratique. Les praticiens de la psychothérapie se conforment également aux lois et règlements gouvernementaux les concernant. Lorsque les règlements, les pratiques ou les lois, européennes, nationales, organisationnelles, sont en conflit avec ceux de la FF2P ou de l’EAP, de l’organisation nationale de certification, ou avec les normes et les directives de leurs institutions ou associations, les praticiens de la psychothérapie rendent public leur engagement auprès de la FF2P, de l’EAP, et de leur organisation nationale de certification sur leur respect des normes et des lignes directives de leurs instituts ou associations et, si possible, travaillent à une résolution du conflit. En tant que professionnels, ils sont concernés par le développement de telles réglementations qui servent le mieux l’intérêt public, et ils travaillent à changer les règlements existants qui ne sont pas conformes à l’intérêt public.
+<br><br>
+Art. 3b : En tant que salariés ou employeurs, les praticiens de la psychothérapie ne peuvent participer ou tolérer des pratiques non éthiques ou qui débouchent sur des actions illégales ou injustifiables. De telles pratiques incluent, celles qui sont fondées sur des considérations de race, de handicap, d’âge, de sexe, d’orientation sexuelle, de religion ou d’origine nationale dans la pratique, en matière d’embauche, de promotion, ou de formation, sans que celles-ci ne soient exhaustives.
+<br><br>
+Art. 3c : Dans l’exercice de leur profession, les praticiens de la psychothérapie s’interdisent toute action qui violerait ou déprécierait les droits humains, civils et juridiques de leurs clients ou d’autres personnes qui pourraient être touchées.
+<br><br>
+Art. 3d : En tant que praticiens, enseignants, formateurs et chercheurs, les praticiens de la psychothérapie sont conscients du fait que leurs valeurs personnelles peuvent affecter leur communication, l’utilisation de méthodes, la sélection et la présentation de leurs points de vue ou de matériaux, et la nature ou la mise en œuvre de leurs recherches. Lorsque des sujets sources de controverses sont abordés, ils reconnaissent et respectent la diversité des attitudes et des sensibilités individuelles que leurs clients, étudiants, stagiaires ou des sujets peuvent avoir à l’égard de ces questions.</p>
+<br>
+<br>
+<h2>CONFIDENTIALITÉ</h2>
+<p>Principe général : Les praticiens de la psychothérapie sont personnellement tenus à la confidentialité, sauf dans les cas où la loi impose ou autorise la révélation des informations confidentielles. La confidentialité couvre tout ce dont les praticiens de la psychothérapie ont connaissance dans l’exercice de leur profession, autrement dit non seulement ce qui leur est confié mais également ce qu’ils voient, entendent ou comprennent. Ils respectent la confidentialité des informations obtenues de personnes dans le cadre de leur activité. Ils ne divulguent de telles informations à des tiers qu’avec le consentement de la personne (ou de son représentant légal), sauf dans des circonstances exceptionnelles (voir Art. 4e) dans lesquelles ne pas le faire entraînerait probablement un danger évident pour cette personne ou pour d’autres. Les praticiens de la psychothérapie informent leurs clients des limites légales de la confidentialité. Le consentement à révéler des informations à d’autres doit normalement être obtenu par écrit auprès de la personne concernée.
+<br><br>
+Art. 4a : Les informations recueillies lors de consultations ou de conseils, ou l’évaluation de données concernant notamment des enfants, des étudiants, des employés, sont examinées seulement à des fins professionnelles et seulement avec des personnes clairement concernées par l’affaire. Les rapports oraux ou écrits ne doivent comprendre que des données conformes à des fins d’évaluation ou de recommandation, et tous les efforts sont faits pour éviter l’exposition de la vie privée.
+<br><br>
+Art. 4b : Les praticiens de la psychothérapie qui par écrit, lors de conférences ou de réunions publiques présentent des renseignements personnels obtenus au cours de leur activité professionnelle doivent obtenir le consentement préalable de le faire ou, à défaut, ils doivent supprimer tous les informations identificatoires.
+<br><br>
+Art. 4c : Les praticiens de la psychothérapie doivent prendre des dispositions pour préserver la confidentialité lors du stockage, de la destruction des archives et dans l’éventualité de leur propre indisponibilité. Les praticiens de la psychothérapie protègent contre toute indiscrétion tout document concernant les clients, quels que soient le contenu et le support de ces documents.
+<br><br>
+Art. 4d : Avec des mineurs ou d’autres personnes incapables de donner volontairement leur consentement éclairé, les praticiens de la psychothérapie doivent prendre des précautions particulières pour protéger l’intérêt de ces personnes et consulter d’autres personnes impliquées de manière appropriée.
+<br><br>
+Art. 4e : Si les praticiens de la psychothérapie discernent qu’une personne faisant appel à leurs prestations est victime de sévices ou de privations, ils doivent mettre en œuvre les moyens les plus adéquats pour la protéger en faisant preuve de prudence et de circonspection. S’il s’agit d’un mineur ou d’une personne qui n’est pas en mesure de se protéger en raison de son âge ou de son état psychique ou physique, sauf circonstances particulières qu’ils apprécient en conscience, ils alertent les autorités judiciaires, médicales ou administratives.</p>
+<br>
+<br>
+<h2>PROTECTION DU CLIENT</h2>
+<p>Principe général : Les praticiens de la psychothérapie respectent l’intégrité, l’autonomie, le droit à vivre selon ses propres convictions et protègent le bien-être des personnes et des groupes avec lesquels ils travaillent. Les praticiens de la psychothérapie respectent la dignité de la personne humaine, même après la mort de celle-ci. Ils s’interdisent d’y porter atteinte de quelque manière que ce soit, conscients que c’est un droit fondamental et inaliénable. Les praticiens de la psychothérapie reconnaissent et respectent la personne humaine dans sa dimension psychique, que l’individu soit suivi isolément ou collectivement. Les praticiens de la psychothérapie doivent prendre en compte avec la même conscience et dans le respect du principe de non-discrimination tous les clients quels que soient, leur origine, leurs mœurs, leur situation familiale, leur appartenance à une ethnie, à une nation, à une religion, leur orientation sexuelle, leur handicap, leur état de santé, leur réputation. En toutes circonstances, ils n’interviennent qu’avec le consentement préalable, libre et éclairé des personnes concernées. Toutefois le consentement du client ne saurait justifier un manquement à l’éthique ou une infraction à la déontologie. Les praticiens de la psychothérapie ne s’immiscent pas sans raison professionnelle dans les affaires de famille ni dans la vie privée de leurs clients. Lorsque des conflits d’intérêts surviennent entre les clients et les institutions qui emploient des praticiens de la psychothérapie, ceux-ci doivent définir clairement la nature et la direction de leur loyauté et de leurs responsabilités et tenir toutes les parties informées de leurs engagements. Les praticiens de la psychothérapie doivent informer pleinement les clients sur l’objet et la nature des évaluations, des traitements, des enseignements, des modalités de stages et ils reconnaissent ouvertement que les clients, les étudiants, les stagiaires, ou les participants à des études ont la liberté de choix en ce qui concerne leur participation. Contraindre des personnes à participer ou à poursuivre une thérapie est contraire à l’éthique.
+<br><br>
+Art. 5a : Les praticiens de la psychothérapie restent constamment conscients des propres besoins de leurs clients et de l’influence potentielle que représente leur position vis-à-vis de personnes telles que les clients, les étudiants, les stagiaires, les sujets et subordonnés. Ils n’exploitent pas la confiance et la dépendance de ces personnes. A ce titre, les praticiens de la psychothérapie s‘interdisent toute exploitation de leur relation professionnelle à des fins personnelles, religieuses, sectaires, politiques ou idéologiques. Les praticiens de la psychothérapie font tous les efforts pour éviter les relations exclusives et autres que thérapeutiques qui pourraient troubler leur jugement professionnel ou augmenter le risque d’exploitation. A ce titre, ils évitent le cumul de fonctions qui pourrait nuire à leur objectivité professionnelle. L’intimité sexuelle avec les clients, étudiants, stagiaires et participants aux recherches est contraire à l’éthique
+<br><br>
+Art. 5b : Quand un praticien de la psychothérapie s’engage à fournir des services à un client à la demande d’un tiers, celui-ci assume la responsabilité de clarifier la nature des relations entre toutes les parties concernées.
+<br><br>
+Art. 5c : Lorsque les exigences d’une organisation incitent les praticiens de la psychothérapie à violer ces principes éthiques ou d’autres, les praticiens de la psychothérapie clarifient la nature du conflit entre ces exigences et l’éthique. Ils informent toutes les parties des responsabilités éthiques du praticien de la psychothérapie et prennent des mesures appropriées.
+<br><br>
+Art. 5d : Les praticiens de la psychothérapie prennent d’avance des dispositions financières qui doivent être clairement comprises et qui permettent d’assurer au mieux les intérêts de leurs clients, étudiants, stagiaires ou participants à des études. Ils ne donnent ou ne reçoivent de rémunération pour diriger des clients vers d’autres praticiens.
+<br><br>
+Art. 5e : Les praticiens de la psychothérapie mettent fin à une relation thérapeutique ou de conseil dès lors qu’il est assez clair que le client n’en tire pas profit, ou si le client refuse la thérapie proposée ou souhaite l’interrompre. Dans ce cas les praticiens de la psychothérapie prennent acte de ce refus et mettent en place les mesures nécessaires pour diriger le client vers des confrères.</p>
+<br>
+<br>
+<h2>RELATIONS PROFESSIONNELLES</h2>
+<p>Principe général : Les praticiens de la psychothérapie agissent en tenant dûment compte des besoins, des compétences spécifiques et des obligations de leurs collègues praticiens de la psychothérapie, psychologues, psychanalystes, psychiatres, médecins, parmi d’autres professions. Ils respectent les prérogatives et les obligations des institutions ou des organisations auxquelles ces autres collègues sont associés.
+<br><br>
+Art. 6a : Les praticiens de la psychothérapie reconnaissent les domaines de compétence des professions connexes. Ils font pleinement usage de toutes les ressources professionnelles, techniques et administratives pour servir au mieux les intérêts du public. L’absence de relations formelles avec d’autres professionnels ne dispense pas les praticiens de la psychothérapie de la responsabilité d’assurer à leurs clients le meilleur service possible, pas plus qu’il ne les exempte de l’obligation de faire preuve de prévoyance, de diligence et de tact dans l’obtention de l’assistance complémentaire ou alternative qui serait nécessaire.
+<br><br>
+Art. 6b : Les praticiens de la psychothérapie connaissent et prennent en compte les usages et les pratiques d’autres groupes professionnels avec lesquels ils travaillent et ils coopèrent pleinement avec ces groupes. Si une personne reçoit des services similaires d’un autre professionnel, les praticiens de la psychothérapie examinent avec prudence et sensibilité les questions thérapeutiques ainsi que le bien-être du client. Les praticiens de la psychothérapie discutent de ces questions avec le client et cherchent, si possible, à maintenir des relations claires et convenues avec les autres praticiens impliqués.
+<br><br>
+Art. 6c : Les praticiens de la psychothérapie qui emploient ou supervisent d’autres praticiens en formation acceptent l’obligation de soutenir le développement professionnel de ces personnes et de prendre des mesures pour augmenter leurs compétences. Ils proposent des conditions de travail appropriées, des évaluations en temps opportun, des consultations constructives et des possibilités d’expérience.
+<br><br>
+Art. 6d : Lorsque des praticiens de la psychothérapie apprennent qu’un autre praticien de la psychothérapie a violé l’éthique, et que cela semble justifié, ils tentent de résoudre le problème de manière informelle en attirant l’attention du praticien de la psychothérapie sur ce comportement. Si la faute est mineure et/ou semble être due à un manque de sensibilité, de connaissance ou d’expérience, une telle solution informelle est généralement appropriée. Ces efforts informels correctifs doivent préserver le droit à la confidentialité. Si la violation ne semble pas trouver de solution à l’issue de l’intervention informelle, ou si elle est de nature plus grave, les praticiens de la psychothérapie la porteront à l’attention de l’institution, de l’association ou du comité d’éthique et de déontologie professionnelle compétente.
+<br><br>
+Art. 6e : Le crédit de publication est attribué à ceux qui ont contribué à une publication en proportion de leurs contributions professionnelles. Les contributions professionnelles majeures faites par plusieurs personnes sur un projet commun sont reconnues pour les coauteurs avec la personne qui a fait la contribution principale et apparaît en premier. Des contributions mineures à caractère professionnel, une large assistance matérielle ou même une aide non professionnelle peuvent être reconnues dans les notes ou dans une déclaration liminaire. On peut remercier grâce à des citations spécifiques pour des documents inédits ou déjà publiés qui ont directement influencé la recherche ou les écrits. Les praticiens de la psychothérapie qui compilent et éditent des résultats obtenus par d’autres pour les publier le font sous le nom du groupe d’origine, et le cas échéant, avec leur propre nom apparaissant comme président ou comme éditeur. Tous les contributeurs sont reconnus et nommés.
+<br><br>
+Art. 6f : Pour effectuer des recherches au sein d’institutions ou d’organisations, les praticiens de la psychothérapie s’assurent d’obtenir les autorisations nécessaires pour mener de telles recherches. Ils sont conscients de leurs obligations envers de futurs chercheurs et doivent veiller à ce que les institutions d’accueil reçoivent suffisamment d’informations sur la recherche et soient dûment remerciées pour leurs contributions.</p>
+<br><br>
+<br><br>
+<h2>DÉCLARATIONS PUBLIQUES</h2>
+<p>Principe général : Les déclarations publiques, les annonces de services, la publicité, et les activités de promotion des praticiens de la psychothérapie ont pour but d’aider le public à se forger des jugements et à faire des choix. Les praticiens de la psychothérapie présentent avec précision et objectivité leurs qualifications professionnelles, leurs affiliations et leurs fonctions, ainsi que celles des institutions ou organisations avec lesquelles leurs déclarations ou eux-mêmes peuvent être associés. Dans leurs déclarations publiques relatives à des informations psychothérapeutiques ou à des opinions professionnelles ou qui fournissent des informations sur la disponibilité de techniques, de produits, de publications et de services, les praticiens de la psychothérapie fondent leurs déclarations sur des conclusions et des techniques généralement acceptées et reconnaissent pleinement les limites et les incertitudes y afférent.
+<br><br>
+Art. 7a : Lors de l’annonce ou de la publicité pour leurs pratiques professionnelles, les praticiens de la psychothérapie peuvent lister les informations suivantes pour décrire le prestataire et les services proposés : nom, plus haut diplôme académique dans la spécialité ou certificat de formation obtenu d’un établissement accrédité, la date, le type, l’obtention du CEP, l’appartenance à des organisations de psychothérapie, à des organismes professionnels pertinents ou connexes, l’adresse, le numéro de téléphone, les heures de bureau, une brève liste du type de services psychologiques offerts, une présentation appropriée des informations tarifaires, les langues étrangères parlées, la politique à l’égard de l’assurance santé ou de paiements par un tiers et autres informations brèves et pertinentes. D’autres renseignements pertinents ou importants pour le public peuvent être inclus s’ils ne sont pas interdits par d’autres sections de ce code de déontologie.
+<br><br>
+Art. 7b : Lors de l’annonce ou de la publicité faite à leurs pratiques psychothérapeutiques ou à leurs publications, les praticiens de la psychothérapie ne doivent pas présenter leur affiliation à une organisation d’une manière qui impliquerait à tort un parrainage ou une certification par cette organisation. En particulier et par exemple, les praticiens de la psychothérapie ne citent pas d’affiliation européenne ou nationale ou l’appartenance à une institution ou à une association comme une manière de suggérer que cette appartenance implique une compétence professionnelle spécialisée ou une qualification. Les déclarations publiques comprennent, entre autres, les communications dans des journaux, des livres, des listes, des annuaires, surInternet, à la télévision, à la radio, ou au cinéma. Elles ne doivent pas contenir (1) de déclarations fausses, frauduleuses, trompeuses, mensongères ou de communiqués malhonnêtes ; (2) une interprétation erronée de faits ou une déclaration de nature à tromper ou fourvoyer parce que, dans son contexte, elle ne divulgue qu’une partie des faits pertinents ; (3) le témoignage d’un client sur la qualité des produits ou des services d’un praticien de la psychothérapie ; (4) une déclaration destinée ou susceptible de créer des attentes fausses ou injustifiées de résultats positifs ; (5) une déclaration impliquant des capacités inhabituelles, uniques ou rares ; (6) une déclaration concernant les valeurs comparatives des services offerts ; (7) une déclaration de sollicitation directe de clients individuels.
+<br><br>
+Art. 7c : Les praticiens de la psychothérapie ne dédommagent pas ou ne donnent rien de valeur à un représentant de la presse, de la radio, de la télévision, ou de tout autre média pour obtenir en contrepartie une publication professionnelle dans un article d’information. Une publicité payante doit être identifiée comme telle, sauf s’il est évident d’après le contexte qu’il s’agit d’une publicité payante. Avant d’être diffusée à la radio ou à la télévision, la publicité doit être préenregistrée et approuvée pour diffusion par le praticien de la psychothérapie. Des archives des publicités et de leur diffusion seront conservées par les praticiens de la psychothérapie.
+<br><br>
+Art. 7d : Les annonces ou les publicités pour des séances de groupe de thérapie ou des stages, des formations, faites par les praticiens de la psychothérapie ou des organismes doivent clairement déclarer leurs objectifs et comporter une description claire des expériences ou des formations qu’elles proposent. Les qualifications, la formation et l’expérience des membres du personnel seront bien spécifiées et disponibles avant le début de la constitution du groupe, de la formation ou des services. Un relevé clair des honoraires et des implications contractuelles sera disponible avant la participation.
+<br><br>
+Art. 7e : Les praticiens de la psychothérapie associés au développement ou à la promotion de produits, de techniques psychothérapeutiques, de livres ou autres articles proposés à la vente commerciale doivent faire des efforts raisonnables pour s’assurer que les annonces et les publicités sont présentées dans un cadre professionnel, scientifiquement acceptables, de manière éthique, factuelle et informative .
+<br><br>
+Art. 7f : Les praticiens de la psychothérapie ne participent pas à des fins d’enrichissement personnel à des annonces commerciales ou à des publicités recommandant au public l’achat ou l’utilisation de produits exclusifs ou de services lorsque cette participation est fondée uniquement sur leur identification en tant que praticiens de la psychothérapie. A ce titre ils n’utilisent ni leur titre ni leur fonction aux seules fins de promouvoir un tiers, un produit ou une société.
+<br><br>
+Art. 7g : Les praticiens de la psychothérapie présentent la science et l’art de la psychothérapie et offrent leurs services, leurs produits et leurs publications de façon juste et précise, en évitant les déclarations faussées par le sensationnalisme, l’exagération, la superficialité. Les praticiens de la psychothérapie sont guidés par l’obligation principale d’aider le public à se former des jugements éclairés, une opinion et à faire des choix.
+<br><br>
+Art. 7h : En tant qu’enseignants, les praticiens de la psychothérapie doivent s’assurer que les annonces dans des catalogues et des offres de cours sont exactes et non trompeuses, notamment en termes de matières à étudier, des bases pour l’évaluation des progrès et de la nature des travaux pratiques. Les communiqués, brochures ou publicités qui décrivent des ateliers, des séminaires ou d’autres programmes éducatifs doivent précisément définir le public auquel sont destinés le programme, les critères d’admissibilité, les objectifs pédagogiques, et la nature des matières à étudier. Ces annonces doivent aussi présenter avec précision les qualifications, la formation et l’expérience des praticiens de la psychothérapie présentant les programmes et tous les frais qu’elles impliquent.
+<br><br>
+Art. 7i : Les annonces publiques ou les publicités sollicitant des participants à des études dans lesquelles des services cliniques ou d’autres services professionnels sont offerts à titre d’incitation doivent clairement décrire la nature de ces services, ainsi que les coûts et les autres obligations que les participants à l’étude doivent accepter.
+<br><br>
+Art. 7j : Les praticiens de la psychothérapie acceptent l’obligation de corriger ceux qui présentent les qualifications professionnelles du praticien de la psychothérapie ou d’associations avec des produits ou des services, d’une manière incompatible avec ces lignes directrices.
+<br><br>
+Art. 7k : Un diagnostic individuel et des thérapies ne sont offerts que dans le contexte d’une relation psychothérapeutique professionnelle. Quand un conseil personnel est donné lors de conférences ou de manifestations publiques, dans des articles de journaux ou des magazines, à la radio ou à la télévision, dans des courriers, ou via des supports similaires, les praticiens de la psychothérapie s’appuieront sur les données pertinentes les plus récentes et produiront le plus haut niveau de l’expertise professionnelle.
+<br><br>
+Art. 7l : Les produits qui sont décrits ou présentés lors de conférences ou de manifestations publiques, dans des articles de journaux ou de magazines, à la radio ou à la télévision, dans des courriers, ou sur des supports similaires respectent les mêmes normes reconnues telles qu’elles existent pour des procédures utilisées dans le contexte d’une relation professionnelle.</p>
+<br>
+<br>
+<h2>SANCTIONS</h2>
+<p>Le non respect d’un seul des principes et obligations énoncés aux termes du présent Code de Déontologie, faisant l’objet d’une plainte auprès de la FF2P, entraîne des poursuites disciplinaires suivant une procédure dont les modalités sont définies sur le site internet de la FF2P (procédure dite de « traitement des plaintes »). Dans cette hypothèse, les praticiens de la psychothérapie membres de la FF2P s’exposent à des sanctions, qui seront appliquées dans l’ordre ci-dessous, en fonction de la gravité de ces manquements.
+<br><br>
+1- Recommandation ou imposition de mesures correctives ;<br>
+2- Avertissement ;<br>
+3- Période de retrait temporaire de l’annuaire de la FF2P, jusqu’à ce que soient appliquées les mesures correctives ;<br>
+4- Suspension définitive de la qualité de membre de la FF2P et signalement auprès des instances européennes si le praticien de la psychothérapie est titulaire du CEP (Certificat Européen de Psychothérapie). Le retrait temporaire, ainsi que la suspension définitive, sont proposés au CA par la commission de déontologie et sont votés par celui-ci. Un courrier notifiant les décisions prises par la commission de déontologie sera envoyé aux deux parties.
+<br><br>
+Fédération Française de Psychothérapie et Psychanalyse FF2P, mars 2020</p>
+</div>
+</section>
+
+
+<footer>
+  <div class="f-name">Clément PETIT · Praticien en Psychothérapie Gestlat &amp; Coach · Paris 13e</div>
+  <div class="f-links">
+    <a href="index.html">Accueil</a>
+    <a href="index.html#a-propos">À propos</a>
+    <a href="index.html#accompagnement">Accompagnement</a>
+    <a href="index.html#avis">Avis</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="mentions_legales.html">Mentions légales</a>
+    <a href="#">Déontologie</a>
+  </div>
+</footer>
+
+
+</body>
+</html>
