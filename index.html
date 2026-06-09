@@ -6,6 +6,9 @@
 <title>Clément PETIT — Praticien en Psychothérapie Gestalt · Paris 13e · Prévention au burn-out, Anxiété, Sens au travail</title>
 <meta name="description" content="Clément PETIT, praticien en Psychothérapie Gestalt certifié à Paris 13e. Prévention au burn-out, anxiété, souffrance au travail, perte de sens.">
 <link rel="canonical" href="https://www.clementpetit-psychotherapeute.fr/">
+<!-- Préchargement police pour éviter FOUT -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&family=Oooh+Baby&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"MedicalBusiness","name":"Clément PETIT — Praticien en Psychothérapie Gestalt","url":"https://www.clementpetit-psychotherapeute.fr/","address":{"@type":"PostalAddress","streetAddress":"15 rue du Dr Lucas-Championnière","addressLocality":"Paris","postalCode":"75013","addressCountry":"FR"}}
@@ -20,19 +23,28 @@
   --sage-lt:    #8AA898;
   --sage-xs:    #E8EEE9;
   --anthracite: #2C2C2C;
-  --slate:      #3A4A58;
   --copper:     #B07D62;
   --white:      #FFFFFF;
   --text:       #3C3C3C;
   --muted:      #6B7470;
   --nav-h:      64px;
-  /* Nouvelle palette */
   --beige:      #F4F0EA;
   --vert:       #79938D;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
+
+/* Éviter le FOUT (Flash of Unstyled Text) sur hero-name */
+.fonts-loading .hero-name {
+  opacity: 0;
+}
+.fonts-loaded .hero-name,
+.hero-name {
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
 body {
   font-family: 'Inter', sans-serif;
   color: var(--text);
@@ -74,13 +86,20 @@ nav {
   transition: background 0.2s !important;
 }
 .nav-cta:hover { background: #6a817b !important; }
-.nav-deonto {
-  border: 1px solid rgba(176,125,98,0.5) !important;
-  color: var(--copper) !important;
-  padding: 7px 14px; border-radius: 4px;
-  transition: all 0.2s !important;
+.nav-contact-info {
+  display: flex; flex-direction: column; gap: 2px; align-items: flex-end;
+  margin-right: 8px;
 }
-.nav-deonto:hover { background: rgba(176,125,98,0.1) !important; color: var(--copper) !important; border-color: var(--copper) !important; }
+.nav-phone {
+  font-size: 0.68rem; color: rgba(255,255,255,0.65); letter-spacing: 0.04em;
+  text-decoration: none; transition: color 0.2s;
+}
+.nav-phone:hover { color: var(--white); }
+.nav-email {
+  font-size: 0.6rem; color: rgba(255,255,255,0.45); letter-spacing: 0.04em;
+  text-decoration: none; transition: color 0.2s;
+}
+.nav-email:hover { color: rgba(255,255,255,0.75); }
 .nav-toggle {
   display: none; flex-direction: column; gap: 5px;
   cursor: pointer; background: none; border: none; padding: 4px;
@@ -116,7 +135,6 @@ section { scroll-margin-top: var(--nav-h); }
   font-size: 5rem; font-weight: 200;
   color: var(--anthracite); line-height: 1.0; margin-bottom: 28px; letter-spacing: 0.01em;
 }
-.hero-name strong { display: block; font-weight: 600; }
 .hero-subtitle { font-size: 0.95rem; font-weight: 300; color: var(--muted); margin-bottom: 10px; line-height: 1.5; }
 .hero-tagline { font-size: 0.9rem; font-weight: 300; color: var(--muted); line-height: 1.65; max-width: 400px; margin-bottom: 28px; }
 .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
@@ -133,13 +151,24 @@ section { scroll-margin-top: var(--nav-h); }
   letter-spacing: 0.08em; text-transform: uppercase; transition: all 0.2s; display: inline-block;
 }
 .btn-secondary:hover { border-color: var(--vert); background: rgba(121,147,141,0.08); }
+
+/* Hero right : photo de fond + carte */
 .hero-right {
   position: relative; display: flex; align-items: center;
   justify-content: flex-end; padding: 48px 64px 48px 40px;
+  overflow: hidden;
+}
+.hero-right-bg {
+  position: absolute; inset: 0;
+  background-image: url('hero-cabinet.jpg');
+  background-size: cover; background-position: center;
+  opacity: 0.35;
+  z-index: 0;
 }
 .hero-info-card {
   background: var(--anthracite); color: var(--white); border-radius: 8px;
   padding: 22px 24px; width: 255px; position: relative; z-index: 2;
+  box-shadow: 0 12px 40px rgba(44,44,44,0.35);
 }
 .hero-info-card .hic-label {
   font-size: 0.57rem; letter-spacing: 0.2em; text-transform: uppercase;
@@ -158,18 +187,6 @@ section { scroll-margin-top: var(--nav-h); }
   content: ''; width: 4px; height: 4px; border-radius: 50%;
   background: var(--sage-lt); flex-shrink: 0; margin-top: 6px;
 }
-.hero-right::before {
-  content: ''; position: absolute; top: 50%; right: 20px;
-  transform: translateY(-50%); width: 360px; height: 360px;
-  border-radius: 50%; background: rgba(74,107,93,0.07);
-  border: 1px solid rgba(74,107,93,0.1); pointer-events: none;
-}
-.hero-right::after {
-  content: ''; position: absolute; top: 50%; right: 120px;
-  transform: translateY(-50%); width: 200px; height: 200px;
-  border-radius: 50%; background: rgba(74,107,93,0.04); pointer-events: none;
-}
-
 
 /* A PROPOS */
 #a-propos { background: var(--beige); padding: 48px 0 56px; position: relative; overflow: hidden; }
@@ -243,8 +260,6 @@ section { scroll-margin-top: var(--nav-h); }
   background: var(--vert);
   padding: 52px 0;
 }
-
-/* Couleurs texte section Psychothérapie */
 #Psychothérapie .section-label { color: rgba(244,240,234,0.7); }
 #Psychothérapie .section-title { color: var(--beige); }
 #Psychothérapie .section-subtitle { color: rgba(244,240,234,0.75); }
@@ -252,28 +267,23 @@ section { scroll-margin-top: var(--nav-h); }
 #Psychothérapie .gestalt-sub-title { color: var(--beige); }
 #Psychothérapie .gestalt-sub-intro { color: rgba(244,240,234,0.75); }
 #Psychothérapie .pb-other-themes { color: rgba(244,240,234,0.65); }
-/* Boutons beige avec texte vert dans Psychothérapie */
 #Psychothérapie .btn-primary { background: var(--beige); color: var(--vert); }
 #Psychothérapie .btn-primary:hover { background: #e8e3dc; color: var(--vert); transform: translateY(-1px); }
-/* Cards pb dans Psychothérapie */
 #Psychothérapie .pb-card { background: rgba(244,240,234,0.14); border-color: rgba(244,240,234,0.25); box-shadow: none; }
 #Psychothérapie .pb-card:hover { border-color: rgba(244,240,234,0.45); box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
 #Psychothérapie .pb-content h3 { color: var(--beige); }
 #Psychothérapie .pb-content p { color: rgba(244,240,234,0.75); }
 #Psychothérapie .pb-icon { background: rgba(244,240,234,0.2); }
-/* Carousel boutons dans Psychothérapie */
 #Psychothérapie .carousel-btn { background: rgba(244,240,234,0.15); border-color: rgba(244,240,234,0.35); color: var(--beige); }
 #Psychothérapie .carousel-btn:hover { background: var(--beige); color: var(--vert); border-color: var(--beige); }
 #Psychothérapie .carousel-dot { background: rgba(244,240,234,0.3); }
 #Psychothérapie .carousel-dot.active { background: var(--beige); }
-/* Gestalt cards dans Psychothérapie */
 #Psychothérapie .gestalt-card-light { background: rgba(244,240,234,0.12); border-color: rgba(244,240,234,0.2); }
 #Psychothérapie .gestalt-card-light:hover { border-color: rgba(244,240,234,0.4); box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
 #Psychothérapie .gestalt-card-light h3 { color: var(--beige); }
 #Psychothérapie .gestalt-card-light p { color: rgba(244,240,234,0.75); }
 #Psychothérapie .gestalt-card-light-icon { background: rgba(244,240,234,0.2); }
 #Psychothérapie .gestalt-card-light:nth-child(2) { background: rgba(244,240,234,0.18); border-color: rgba(244,240,234,0.28); }
-/* Séparateur sous gestalt */
 #Psychothérapie .gestalt-sub { border-top-color: rgba(244,240,234,0.2); }
 
 .section-label {
@@ -289,29 +299,41 @@ section { scroll-margin-top: var(--nav-h); }
   margin-bottom: 32px; line-height: 1.6;
 }
 
-/* CAROUSEL */
-.carousel-wrap { position: relative; }
-.carousel-track-outer { overflow: hidden; }
+/* ─────────────────────────────────────────
+   CAROUSEL — REFONTE : flèches latérales
+───────────────────────────────────────── */
+.carousel-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+/* Rangée avec flèches gauche/droite + contenu */
+.carousel-main-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.carousel-track-outer {
+  overflow: hidden;
+  flex: 1;
+  min-width: 0;
+}
 .carousel-track {
   display: flex;
   transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   gap: 12px;
+  will-change: transform;
 }
-.carousel-track .pb-card {
-  min-width: 220px;
-  max-width: 320px;
-  width: auto;
-  flex-shrink: 0;
-}
-.carousel-nav {
+/* Dots en bas (fil d'ariane) */
+.carousel-dots-row {
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 16px;
-  margin-top: 20px;
+  align-items: center;
+  gap: 6px;
 }
 .carousel-btn {
-  width: 36px; height: 36px;
+  width: 38px; height: 38px; flex-shrink: 0;
   border-radius: 50%;
   border: 1.5px solid rgba(74,107,93,0.35);
   background: var(--white);
@@ -323,10 +345,7 @@ section { scroll-margin-top: var(--nav-h); }
   outline: none;
 }
 .carousel-btn:hover { background: var(--sage); color: var(--white); border-color: var(--sage); }
-.carousel-btn:disabled { opacity: 0.3; cursor: default; }
-.carousel-dots {
-  display: flex; gap: 6px; align-items: center;
-}
+.carousel-btn:disabled { opacity: 0.25; cursor: default; }
 .carousel-dot {
   width: 6px; height: 6px; border-radius: 50%;
   background: rgba(74,107,93,0.25);
@@ -334,6 +353,12 @@ section { scroll-margin-top: var(--nav-h); }
   border: none; padding: 0; outline: none;
 }
 .carousel-dot.active { background: var(--sage); width: 20px; border-radius: 3px; }
+
+/* Cards Psychothérapie dans carousel */
+.carousel-track .pb-card {
+  flex-shrink: 0;
+  width: calc(50% - 6px);
+}
 
 /* Cards Psychothérapie */
 .pb-card {
@@ -365,22 +390,7 @@ section { scroll-margin-top: var(--nav-h); }
 .pb-card:nth-child(even) .pb-icon {
   background: rgba(176,125,98,0.12);
 }
-.gestalt-card-light:nth-child(2) {
-  background: rgba(176,125,98,0.05);
-  border-color: rgba(176,125,98,0.2);
-}
-.gestalt-card-light:nth-child(2)::before {
-  background: linear-gradient(to right, var(--copper), #d4a080);
-}
-.coaching-pb-card:nth-child(odd)::before {
-  background: linear-gradient(to right, rgba(176,125,98,0.6), rgba(176,125,98,0.2));
-}
 .pb-cta-wrap { text-align: center; margin-top: 30px; }
-.pb-other-themes {
-  text-align: center; font-size: 0.83rem; font-weight: 300; color: var(--muted);
-  margin-top: 22px; font-style: italic; max-width: 580px;
-  margin-left: auto; margin-right: auto;
-}
 
 /* Bloc Gestalt */
 .gestalt-sub {
@@ -407,10 +417,16 @@ section { scroll-margin-top: var(--nav-h); }
 .gestalt-sub-intro {
   font-size: 0.86rem; font-weight: 300; color: var(--muted); line-height: 1.75;
 }
-.gestalt-cards-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+/* Carousel Gestalt */
+.gestalt-carousel-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.gestalt-carousel-track .gestalt-card-light {
+  flex-shrink: 0;
+  width: calc(33.333% - 8px);
 }
 .gestalt-card-light {
   background: var(--white);
@@ -436,6 +452,13 @@ section { scroll-margin-top: var(--nav-h); }
   font-weight: 400; color: var(--anthracite); margin-bottom: 7px; line-height: 1.3;
 }
 .gestalt-card-light p { font-size: 0.79rem; line-height: 1.68; color: var(--muted); font-weight: 300; }
+.gestalt-card-light:nth-child(2) {
+  background: rgba(176,125,98,0.05);
+  border-color: rgba(176,125,98,0.2);
+}
+.gestalt-card-light:nth-child(2)::before {
+  background: linear-gradient(to right, var(--copper), #d4a080);
+}
 
 /* ─────────────────────────────────────────
    SECTION COACHING
@@ -452,8 +475,6 @@ section { scroll-margin-top: var(--nav-h); }
 #coaching .section-label { color: rgba(244,240,234,0.7); }
 #coaching .section-title { color: var(--beige); }
 #coaching .section-subtitle { color: rgba(244,240,234,0.75); }
-
-/* Coaching cards — palette beige */
 #coaching .coaching-pb-card { background: rgba(244,240,234,0.14); border-color: rgba(244,240,234,0.22); }
 #coaching .coaching-pb-card:hover { background: rgba(244,240,234,0.22); }
 #coaching .coaching-pb-icon { background: rgba(244,240,234,0.2); }
@@ -463,10 +484,8 @@ section { scroll-margin-top: var(--nav-h); }
 #coaching .carousel-btn-dark:hover { background: var(--beige); color: var(--vert); border-color: var(--beige); }
 #coaching .carousel-dot-dark { background: rgba(244,240,234,0.3); }
 #coaching .carousel-dot-dark.active { background: var(--beige); }
-/* Bouton beige avec texte vert dans coaching */
 #coaching .btn-primary { background: var(--beige); color: var(--vert); }
 #coaching .btn-primary:hover { background: #e8e3dc; color: var(--vert); transform: translateY(-1px); }
-/* Coaching bottom text */
 #coaching .coaching-bottom { border-top-color: rgba(244,240,234,0.2); }
 #coaching .coaching-bottom-text h3 { color: var(--beige); }
 #coaching .coaching-bottom-text p { color: rgba(244,240,234,0.72); }
@@ -475,16 +494,11 @@ section { scroll-margin-top: var(--nav-h); }
 #coaching .coaching-video-label { color: rgba(244,240,234,0.5); }
 #coaching .coaching-video-title { color: var(--beige); }
 #coaching .yt-caption { color: rgba(244,240,234,0.5); }
-#coaching .diff-cell { color: rgba(244,240,234,0.55); background: rgba(244,240,234,0.06); border-color: rgba(244,240,234,0.1); }
-#coaching .diff-cell.header { background: rgba(244,240,234,0.12); border-color: rgba(244,240,234,0.15); color: var(--beige); }
-#coaching .diff-label { color: rgba(244,240,234,0.42); }
 
-/* Carousel coaching — même mécanique, style dark */
+/* Carousel coaching */
 .coaching-carousel-track .coaching-pb-card {
-  min-width: 180px;
-  max-width: 260px;
-  width: auto;
   flex-shrink: 0;
+  width: calc(50% - 6px);
 }
 .coaching-pb-card {
   background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
@@ -513,7 +527,7 @@ section { scroll-margin-top: var(--nav-h); }
 
 /* Boutons carousel dark */
 .carousel-btn-dark {
-  width: 36px; height: 36px; border-radius: 50%;
+  width: 38px; height: 38px; flex-shrink: 0; border-radius: 50%;
   border: 1.5px solid rgba(255,255,255,0.25);
   background: transparent; color: rgba(255,255,255,0.7);
   cursor: pointer; display: flex; align-items: center; justify-content: center;
@@ -559,8 +573,6 @@ section { scroll-margin-top: var(--nav-h); }
   color: var(--white); border-radius: 50%; display: flex; align-items: center;
   justify-content: center; font-size: 0.64rem; font-weight: 500;
 }
-
-/* Bloc vidéo coaching */
 .coaching-video-wrap {
   display: flex; flex-direction: column; gap: 16px;
 }
@@ -572,51 +584,16 @@ section { scroll-margin-top: var(--nav-h); }
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.15rem; font-weight: 300; color: var(--white); line-height: 1.3; margin-bottom: 12px;
 }
-.yt-thumb {
-  position: relative;
-  border-radius: 8px;
-  overflow: hidden;
-  background: rgba(0,0,0,0.3);
-  aspect-ratio: 16/9;
-  cursor: pointer;
-  display: block;
-  text-decoration: none;
-  transition: transform 0.2s;
-}
-.yt-thumb:hover { transform: scale(1.02); }
-.yt-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.75; }
-.yt-thumb-fallback {
-  width: 100%; height: 100%;
-  background: linear-gradient(135deg, rgba(74,107,93,0.4), rgba(44,44,44,0.6));
-  display: flex; align-items: center; justify-content: center;
-}
-.yt-play {
-  position: absolute; top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 56px; height: 56px; border-radius: 50%;
-  background: rgba(255,255,255,0.9);
-  display: flex; align-items: center; justify-content: center;
-  transition: background 0.2s, transform 0.2s;
-}
-.yt-thumb:hover .yt-play { background: var(--white); transform: translate(-50%, -50%) scale(1.1); }
-.yt-play svg { width: 20px; height: 20px; fill: var(--sage-dk); margin-left: 3px; }
 .yt-caption { font-size: 0.75rem; color: rgba(255,255,255,0.5); font-weight: 300; line-height: 1.5; margin-top: 4px; }
 
-.diff-label {
-  font-size: 0.59rem; font-weight: 500; letter-spacing: 0.16em;
-  text-transform: uppercase; color: rgba(255,255,255,0.42); margin-bottom: 11px;
+/* ── Iframe YouTube ── */
+.yt-embed-wrap {
+  border-radius: 8px; overflow: hidden;
+  aspect-ratio: 16/9; background: #000;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
 }
-.diff-table { margin-top: 0; }
-.diff-row { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-bottom: 7px; }
-.diff-cell {
-  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.09);
-  border-radius: 5px; padding: 9px 12px; font-size: 0.77rem;
-  color: rgba(255,255,255,0.55); font-weight: 300; line-height: 1.5;
-}
-.diff-cell.header {
-  background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.15);
-  color: var(--white); font-size: 0.64rem; font-weight: 400;
-  letter-spacing: 0.1em; text-transform: uppercase;
+.yt-embed-wrap iframe {
+  width: 100%; height: 100%; display: block; border: none;
 }
 
 /* AVIS */
@@ -625,12 +602,10 @@ section { scroll-margin-top: var(--nav-h); }
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
   background: linear-gradient(to right, transparent, rgba(121,147,141,0.3), transparent);
 }
-/* Boutons carousel avis : vert avec texte beige */
 #avis .carousel-btn { background: var(--vert); border-color: var(--vert); color: var(--beige); }
 #avis .carousel-btn:hover { background: #6a817b; border-color: #6a817b; color: var(--beige); }
 #avis .carousel-dot { background: rgba(121,147,141,0.35); }
 #avis .carousel-dot.active { background: var(--vert); }
-/* Titre avis */
 #avis .section-label { color: var(--vert); }
 #avis .section-title { color: var(--anthracite); }
 #avis .avis-note a { color: var(--vert); }
@@ -649,7 +624,12 @@ section { scroll-margin-top: var(--nav-h); }
 }
 .avis-score-stars { color: #F5C842; font-size: 0.82rem; letter-spacing: 2px; margin-bottom: 2px; }
 .avis-score-label { font-size: 0.61rem; color: rgba(255,255,255,0.65); font-weight: 300; }
-.avis-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+/* Carousel avis */
+.avis-carousel-track .avis-card {
+  flex-shrink: 0;
+  width: calc(33.333% - 8px);
+  min-width: 240px;
+}
 .avis-card {
   background: var(--white); border: 1px solid rgba(74,107,93,0.12);
   border-radius: 7px; padding: 16px 18px;
@@ -685,7 +665,6 @@ section { scroll-margin-top: var(--nav-h); }
   width: 360px; height: 360px; border-radius: 50%;
   background: rgba(0,0,0,0.07); pointer-events: none;
 }
-/* Texte et éléments contact sur fond vert */
 #contact .section-label { color: rgba(244,240,234,0.65) !important; }
 #contact .section-title { color: var(--beige) !important; }
 #contact .contact-info h3 { color: rgba(244,240,234,0.8); }
@@ -696,7 +675,6 @@ section { scroll-margin-top: var(--nav-h); }
 #contact .tarif-card:hover { background: rgba(244,240,234,0.18); }
 #contact .tarif-card .price { color: var(--beige); }
 #contact .tarif-card .price-label { color: rgba(244,240,234,0.5); }
-/* Formulaire */
 #contact .contact-form-zone { background: rgba(244,240,234,0.1); border-color: rgba(244,240,234,0.18); }
 #contact .contact-form-zone h3 { color: var(--beige); }
 #contact .contact-form-zone .sub { color: rgba(244,240,234,0.5); }
@@ -707,7 +685,6 @@ section { scroll-margin-top: var(--nav-h); }
 #contact .form-group textarea:focus { border-color: rgba(244,240,234,0.5); background: rgba(244,240,234,0.14); }
 #contact .form-group input::placeholder,
 #contact .form-group textarea::placeholder { color: rgba(244,240,234,0.3); }
-/* Bouton formulaire : beige avec texte vert */
 #contact .rdv-cta { background: var(--beige); color: var(--vert); }
 #contact .rdv-cta:hover { background: #e8e3dc; }
 #contact .rgpd-note { color: rgba(244,240,234,0.35); }
@@ -787,9 +764,30 @@ footer .f-name { font-family: 'Cormorant Garamond', serif; font-size: 0.86rem; c
 footer .f-links { display: flex; gap: 17px; flex-wrap: wrap; }
 footer .f-links a { font-size: 0.62rem; color: rgba(255,255,255,0.3); text-decoration: none; letter-spacing: 0.05em; transition: color 0.2s; }
 footer .f-links a:hover { color: rgba(255,255,255,0.65); }
-footer .f-links a.deonto-link { color: var(--copper); }
-footer .f-links a.deonto-link:hover { color: #c99a80; }
 footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
+
+/* ── Séparateur ── */
+.sep-dots {
+  display: flex; align-items: center; justify-content: center;
+  gap: 10px; padding: 16px 0; background: var(--beige);
+}
+.sep-dots span {
+  display: block; width: 5px; height: 5px; border-radius: 50%;
+  background: var(--sage-lt);
+}
+.sep-dots span:nth-child(3) { background: var(--sage); width: 7px; height: 7px; }
+.sep-dots span:nth-child(2), .sep-dots span:nth-child(4) { background: var(--sage-mid); width: 6px; height: 6px; }
+
+/* ── Bouton déontologie ── */
+.btn-deonto {
+  display: inline-block; margin-top: 14px;
+  border-color: var(--vert); color: var(--beige);
+  padding: 7px 18px; border-radius: 4px; font-size: 0.7rem;
+  font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase;
+  text-decoration: none; transition: all 0.2s; font-family: 'Inter', sans-serif;
+  background: var(--vert);
+}
+.btn-deonto:hover { background: rgba(176,125,98,0.08); border-color: var(--copper); }
 
 /* RESPONSIVE */
 @media (max-width: 960px) {
@@ -805,24 +803,57 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
   .nav-links a { display: block; padding: 10px 0; font-size: 0.76rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
   .nav-cta, .nav-deonto { margin-top: 9px; padding: 9px 18px; text-align: center; border-radius: 4px; border-bottom: none !important; display: block; }
   .nav-toggle { display: flex; }
+  /* Infos contact nav : dans le menu mobile */
+  .nav-contact-info { display: none; }
+  .nav-links .nav-contact-mobile {
+    padding: 12px 0 4px; border-bottom: none !important;
+  }
+  .nav-links .nav-contact-mobile a {
+    display: block; padding: 4px 0; font-size: 0.75rem;
+    color: rgba(255,255,255,0.45) !important; border-bottom: none !important;
+    text-transform: none; letter-spacing: 0.02em;
+  }
 
   #accueil { grid-template-columns: 1fr; }
   .hero-left { padding: calc(var(--nav-h) + 38px) 20px 50px; }
   .hero-right { display: none; }
 
-  .two-col { grid-template-columns: 1fr; gap: 30px; }
-  .about-photo-col { max-width: 210px; }
-  .photo-overlay-card { right: -10px; bottom: -10px; }
+  /* A propos mobile — réorganisation */
+  .two-col { grid-template-columns: 1fr; gap: 0; }
+  .about-photo-col {
+    max-width: 100%;
+    width: 100%;
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .about-photo-wrapper {
+    width: 160px;
+  }
+  .about-photo-wrapper img,
+  .about-photo-placeholder {
+    max-width: 160px;
+    width: 160px;
+  }
+  .photo-overlay-card { display: none; }
+  .about-photo-tags {
+    justify-content: center;
+    margin-top: 16px;
+  }
+  .photo-caption { text-align: center; margin-top: 6px; }
+  .btn-deonto { display: block; text-align: center; margin-top: 12px; width: 100%; }
+  .about-text { margin-top: 28px; }
 
-  .carousel-track .pb-card,
-  .coaching-carousel-track .coaching-pb-card { min-width: calc(100% - 0px); }
-  
+  /* Carousels mobile : 1 carte */
+  .carousel-track .pb-card { width: calc(100%); }
+  .coaching-carousel-track .coaching-pb-card { width: calc(100%); }
+  .gestalt-carousel-track .gestalt-card-light { width: calc(100%); }
+  .avis-carousel-track .avis-card { width: calc(100%); min-width: unset; }
+
   .gestalt-sub-header { grid-template-columns: 1fr; gap: 20px; }
-  .gestalt-cards-row { grid-template-columns: 1fr; gap: 9px; }
   .coaching-bottom { grid-template-columns: 1fr; gap: 34px; }
-  .avis-carousel-track .avis-card { min-width: calc(100% - 0px); max-width: 100%; }
   .contact-grid { grid-template-columns: 1fr; gap: 34px; }
-  .diff-row { grid-template-columns: 1fr; gap: 5px; }
   .avis-header-wrap { flex-direction: column; }
 
   .container { padding: 0 18px; }
@@ -847,49 +878,6 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
   .tarif-card { padding: 11px 13px; }
   .tarif-card .price { font-size: 1.35rem; }
   .contact-form-zone { padding: 17px; }
-  .smiley-btn { width: 44px; height: 44px; font-size: 1.3rem; }
-  .smiley-row { gap: 8px; }
-  .diff-cell { padding: 8px 10px; font-size: 0.75rem; }
-  .diff-cell.header { font-size: 0.62rem; }
-}
-
-/* ── Séparateur ── */
-
-.sep-dots {
-  display: flex; align-items: center; justify-content: center;
-  gap: 10px; padding: 16px 0; background: var(--beige);
-}
-.sep-dots span {
-  display: block; width: 5px; height: 5px; border-radius: 50%;
-  background: var(--sage-lt);
-}
-.sep-dots span:nth-child(3) { background: var(--sage); width: 7px; height: 7px; }
-.sep-dots span:nth-child(2), .sep-dots span:nth-child(4) { background: var(--sage-mid); width: 6px; height: 6px; }
-
-/* ── Bouton déontologie ── */
-.btn-deonto {
-  display: inline-block; margin-top: 14px;
-  border-color: var(--vert); color: var(--beige); 
-  padding: 7px 18px; border-radius: 4px; font-size: 0.7rem;
-  font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase;
-  text-decoration: none; transition: all 0.2s; font-family: 'Inter', sans-serif;
-  background: var(--vert);
-}
-.btn-deonto:hover { background: rgba(176,125,98,0.08); border-color: var(--copper); }
-
-/* ── Iframe YouTube ── */
-.yt-embed-wrap {
-  border-radius: 8px; overflow: hidden;
-  aspect-ratio: 16/9; background: #000;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-}
-.yt-embed-wrap iframe {
-  width: 100%; height: 100%; display: block; border: none;
-}
-
-/* ── Carousel avis ── */
-.avis-carousel-track .avis-card {
-  min-width: 280px; max-width: 380px; width: auto; flex-shrink: 0;
 }
 </style>
 </head>
@@ -908,6 +896,10 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
     <li><a href="#avis">Avis</a></li>
     <li><a href="#contact" class="nav-cta">Prendre RDV</a></li>
   </ul>
+  <div class="nav-contact-info">
+    <a href="tel:06XXXXXXXX" class="nav-phone">📞 06XXXXXXXX</a>
+    <a href="mailto:xxxxxx@gmail.com" class="nav-email">✉ xxxxxx@gmail.com</a>
+  </div>
   <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
@@ -917,9 +909,8 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
 <section id="accueil">
   <div class="hero-left">
     <p class="hero-eyebrow">Praticien en Psychothérapie Gestalt Certifié · Paris 13e</p>
-    <h1 class="hero-name">
-      Clément Petit</h1>
-    <H2 class="hero-subtitle">Praticien en Psychothérapie Gestalt &amp; Coach de vie professionnelle à Paris 13e</H2>
+    <h1 class="hero-name">Clément Petit</h1>
+    <h2 class="hero-subtitle">Praticien en Psychothérapie Gestalt &amp; Coach de vie professionnelle à Paris 13e</h2>
     <p class="hero-tagline">Un espace pour comprendre ce qui vous freine, traverser la souffrance au travail et retrouver du sens.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Prendre rendez-vous</a>
@@ -927,6 +918,7 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
     </div>
   </div>
   <div class="hero-right">
+    <div class="hero-right-bg"></div>
     <div class="hero-info-card">
       <p class="hic-label">Cabinet · 15 rue du Dr Lucas-Championnière · 75013</p>
       <p>Séances individuelles en présentiel au 13e arrondissement — proche Place d'Italie, Butte-aux-Cailles, Gobelins — ou à distance.</p>
@@ -950,12 +942,12 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
       <div class="about-photo-col">
         <div class="about-photo-wrapper">
           <img
-            src="Clément PETIT therapeute Paris13 Gestalt.jpg"
+            src="Clement PETIT therapeute gestalt coach Paris 13 Gestalt"
             alt="Clément PETIT, praticien en Psychothérapie Gestalt à Paris 13e"
             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
           >
           <div class="about-photo-placeholder" style="display:none;">
-            Photo portrait à intégrer
+            Clément PETIT therapeute Paris 13 Gestalt
           </div>
         </div>
         <div class="about-photo-tags">
@@ -991,49 +983,50 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
 <section id="Psychothérapie">
   <div class="container">
 
-    <!-- Titre principal -->
     <p class="section-label">Psychothérapie gestaltiste individuelle</p>
     <h2 class="section-title">Je vous accompagne en psychothérapie gestaltiste individuelle…</h2>
     <p class="section-subtitle">Chaque situation est unique. Ces thématiques ci-dessous sont des points d'entrée, mais d'autres thématiques peuvent bien entendu être abordées en séance. Chaque accompagnement est construit sur mesure, en fonction de votre situation et de ce qui vous amène.</p>
 
     <!-- Carousel situations -->
     <div class="carousel-wrap" id="accomp-carousel">
-      <div class="carousel-track-outer">
-        <div class="carousel-track" id="accomp-track">
-          <div class="pb-card">
-            <div class="pb-icon">🔥</div>
-            <div class="pb-content">
-              <h3>Epuisement professionnel &amp; souffrance au travail</h3>
+      <div class="carousel-main-row">
+        <button class="carousel-btn" id="accomp-prev" aria-label="Précédent">&#8592;</button>
+        <div class="carousel-track-outer">
+          <div class="carousel-track" id="accomp-track">
+            <div class="pb-card">
+              <div class="pb-icon">🔥</div>
+              <div class="pb-content">
+                <h3>Epuisement professionnel &amp; souffrance au travail</h3>
+              </div>
             </div>
-          </div>
-          <div class="pb-card">
-            <div class="pb-icon">🧭</div>
-            <div class="pb-content">
-              <h3>Perte de sens &amp; transitions professionnelles</h3>
+            <div class="pb-card">
+              <div class="pb-icon">🧭</div>
+              <div class="pb-content">
+                <h3>Perte de sens &amp; transitions professionnelles</h3>
+              </div>
             </div>
-          </div>
-          <div class="pb-card">
-            <div class="pb-icon">🤝</div>
-            <div class="pb-content">
-              <h3>Relations professionnelles difficiles</h3>
+            <div class="pb-card">
+              <div class="pb-icon">🤝</div>
+              <div class="pb-content">
+                <h3>Relations professionnelles difficiles</h3>
+              </div>
             </div>
-          </div>
-          <div class="pb-card">
-            <div class="pb-icon">🌊</div>
-            <div class="pb-content">
-              <h3>Anxiété &amp; stress chronique</h3>
+            <div class="pb-card">
+              <div class="pb-icon">🌊</div>
+              <div class="pb-content">
+                <h3>Anxiété &amp; stress chronique</h3>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="carousel-nav">
-        <button class="carousel-btn" id="accomp-prev" aria-label="Précédent">&#8592;</button>
-        <div class="carousel-dots" id="accomp-dots"></div>
         <button class="carousel-btn" id="accomp-next" aria-label="Suivant">&#8594;</button>
+      </div>
+      <div class="carousel-dots-row">
+        <div class="carousel-dots" id="accomp-dots"></div>
       </div>
     </div>
 
-    <!-- Bloc Gestalt -->
+    <!-- Bloc Gestalt avec carousel -->
     <div class="gestalt-sub">
       <div class="gestalt-sub-header">
         <div>
@@ -1042,21 +1035,34 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
         </div>
         <p class="gestalt-sub-intro">Une approche humaniste qui travaille sur le présent, la relation et la conscience de ce qui se passe en vous — ici et maintenant, dans toute votre complexité. Contrairement à certaines idées reçues, la Gestalt ne plonge pas uniquement dans le passé : elle s'ancre dans l'expérience vivante de la séance.</p>
       </div>
-      <div class="gestalt-cards-row">
-        <div class="gestalt-card-light">
-          <div class="gestalt-card-light-icon">🔍</div>
-          <h3>Qu'est-ce que la Gestalt ?</h3>
-          <p>La Gestalt-thérapie s'intéresse à votre expérience du moment présent : vos émotions, vos besoins, vos schémas relationnels. Elle ne cherche pas à vous réparer — elle vous aide à mieux vous comprendre et à agir différemment.</p>
+
+      <!-- Carousel Gestalt -->
+      <div class="gestalt-carousel-wrap" id="gestalt-carousel">
+        <div class="carousel-main-row">
+          <button class="carousel-btn" id="gestalt-prev" aria-label="Précédent">&#8592;</button>
+          <div class="carousel-track-outer">
+            <div class="carousel-track gestalt-carousel-track" id="gestalt-track">
+              <div class="gestalt-card-light">
+                <div class="gestalt-card-light-icon">🔍</div>
+                <h3>Qu'est-ce que la Gestalt ?</h3>
+                <p>La Gestalt-thérapie s'intéresse à votre expérience du moment présent : vos émotions, vos besoins, vos schémas relationnels. Elle ne cherche pas à vous réparer — elle vous aide à mieux vous comprendre et à agir différemment.</p>
+              </div>
+              <div class="gestalt-card-light">
+                <div class="gestalt-card-light-icon">⚖️</div>
+                <h3>Gestalt vs Psychanalyse</h3>
+                <p>La Gestalt privilégie l'expérience vivante de la relation, le corps, les émotions et ce qui se joue dans la séance elle-même. Une thérapie active, incarnée, profondément respectueuse de votre rythme.</p>
+              </div>
+              <div class="gestalt-card-light">
+                <div class="gestalt-card-light-icon">📅</div>
+                <h3>Pour qui ? Combien de séances ?</h3>
+                <p>Pour toute personne souhaitant mieux se comprendre, sortir d'une impasse ou traverser une période difficile. Le rythme est adapté : de quelques séances ciblées à un suivi au long cours, en présentiel à Paris 13e ou à distance.</p>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-btn" id="gestalt-next" aria-label="Suivant">&#8594;</button>
         </div>
-        <div class="gestalt-card-light">
-          <div class="gestalt-card-light-icon">⚖️</div>
-          <h3>Gestalt vs Psychanalyse</h3>
-          <p>La Gestalt privilégie l'expérience vivante de la relation, le corps, les émotions et ce qui se joue dans la séance elle-même. Une thérapie active, incarnée, profondément respectueuse de votre rythme.</p>
-        </div>
-        <div class="gestalt-card-light">
-          <div class="gestalt-card-light-icon">📅</div>
-          <h3>Pour qui ? Combien de séances ?</h3>
-          <p>Pour toute personne souhaitant mieux se comprendre, sortir d'une impasse ou traverser une période difficile. Le rythme est adapté : de quelques séances ciblées à un suivi au long cours, en présentiel à Paris 13e ou à distance.</p>
+        <div class="carousel-dots-row">
+          <div class="carousel-dots" id="gestalt-dots"></div>
         </div>
       </div>
     </div>
@@ -1064,7 +1070,7 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
     <div class="pb-cta-wrap">
       <a href="#contact" class="btn-primary">Prendre rendez-vous à Paris 13e</a>
     </div>
-	
+
   </div>
 </section>
 
@@ -1081,40 +1087,42 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
     <h2 class="section-title">… ou en coaching professionnel selon vos besoins.</h2>
     <p class="section-subtitle">Le coaching est distinct de la thérapie : il est orienté vers l'action, les objectifs concrets et le déploiement de vos ressources. Je propose les deux modalités, et nous déterminons ensemble ce dont vous avez besoin.</p>
 
-    <!-- Carousel situations coaching -->
+    <!-- Carousel coaching -->
     <div class="carousel-wrap" id="coaching-carousel">
-      <div class="carousel-track-outer">
-        <div class="carousel-track coaching-carousel-track" id="coaching-track">
-          <div class="coaching-pb-card">
-            <div class="coaching-pb-icon">🎯</div>
-            <div class="coaching-pb-content">
-              <h3>Clarifier un projet professionnel</h3>
+      <div class="carousel-main-row">
+        <button class="carousel-btn-dark" id="coaching-prev" aria-label="Précédent">&#8592;</button>
+        <div class="carousel-track-outer">
+          <div class="carousel-track coaching-carousel-track" id="coaching-track">
+            <div class="coaching-pb-card">
+              <div class="coaching-pb-icon">🎯</div>
+              <div class="coaching-pb-content">
+                <h3>Clarifier un projet professionnel</h3>
+              </div>
             </div>
-          </div>
-          <div class="coaching-pb-card">
-            <div class="coaching-pb-icon">💪</div>
-            <div class="coaching-pb-content">
-              <h3>Confiance en soi &amp; affirmation</h3>
+            <div class="coaching-pb-card">
+              <div class="coaching-pb-icon">💪</div>
+              <div class="coaching-pb-content">
+                <h3>Confiance en soi &amp; affirmation</h3>
+              </div>
             </div>
-          </div>
-          <div class="coaching-pb-card">
-            <div class="coaching-pb-icon">🔄</div>
-            <div class="coaching-pb-content">
-              <h3>Traverser une transition</h3>
+            <div class="coaching-pb-card">
+              <div class="coaching-pb-icon">🔄</div>
+              <div class="coaching-pb-content">
+                <h3>Traverser une transition</h3>
+              </div>
             </div>
-          </div>
-          <div class="coaching-pb-card">
-            <div class="coaching-pb-icon">⚖️</div>
-            <div class="coaching-pb-content">
-              <h3>Equilibre vie pro / vie perso</h3>
+            <div class="coaching-pb-card">
+              <div class="coaching-pb-icon">⚖️</div>
+              <div class="coaching-pb-content">
+                <h3>Equilibre vie pro / vie perso</h3>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="carousel-nav">
-        <button class="carousel-btn-dark" id="coaching-prev" aria-label="Précédent">&#8592;</button>
-        <div class="carousel-dots" id="coaching-dots"></div>
         <button class="carousel-btn-dark" id="coaching-next" aria-label="Suivant">&#8594;</button>
+      </div>
+      <div class="carousel-dots-row">
+        <div class="carousel-dots" id="coaching-dots"></div>
       </div>
     </div>
 
@@ -1130,9 +1138,9 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
           <li><span class="num">4</span>Avancer par étapes, ajuster en chemin</li>
         </ul>
         <div style="margin-top:24px;">
-           <div class="pb-cta-wrap">
-      <a href="#contact" class="btn-primary">Prendre rendez-vous à Paris 13e</a>
-    </div>
+          <div class="pb-cta-wrap">
+            <a href="#contact" class="btn-primary">Prendre rendez-vous à Paris 13e</a>
+          </div>
         </div>
       </div>
       <div class="coaching-video-wrap">
@@ -1140,7 +1148,7 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
         <h4 class="coaching-video-title">Mieux comprendre le coaching professionnel</h4>
         <div class="yt-embed-wrap">
           <iframe
-            src="https://www.youtube.com/watch?si=ek6ip01J8Ek8EY5h&v=TXA_n3UF0L0&feature=youtu.be"
+            src="https://www.youtube.com/embed/TXA_n3UF0L0"
             title="Mieux comprendre le coaching professionnel"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -1149,8 +1157,6 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
           </iframe>
         </div>
         <p class="yt-caption">Vidéo de présentation de ma démarche en tant que coach professionnel certifié</p>
-        <div style="margin-top:20px;">
-        </div>
       </div>
     </div>
   </div>
@@ -1173,56 +1179,58 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
       </div>
     </div>
     <div class="carousel-wrap" id="avis-carousel">
-      <div class="carousel-track-outer">
-        <div class="carousel-track avis-carousel-track" id="avis-track">
-          <div class="avis-card">
-        <svg class="avis-google-badge" viewBox="0 0 24 24" fill="none">
-          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-        </svg>
-        <div class="avis-stars">★★★★★</div>
-        <p class="avis-text">Un accompagnement profond et bienveillant. Clément crée un espace de confiance rare, où l'on peut vraiment se dire les choses. Une expérience transformatrice.</p>
-        <div class="avis-author">
-          <div class="avis-avatar">M</div>
-          <div><div class="avis-name">Marie L.</div><div class="avis-date">Il y a 2 semaines</div></div>
-        </div>
-      </div>
-          <div class="avis-card">
-        <svg class="avis-google-badge" viewBox="0 0 24 24" fill="none">
-          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-        </svg>
-        <div class="avis-stars">★★★★★</div>
-        <p class="avis-text">En quelques mois de suivi, j'ai pu comprendre ce qui s'était passé et retrouver une clarté que je pensais avoir perdue définitivement.</p>
-        <div class="avis-author">
-          <div class="avis-avatar">T</div>
-          <div><div class="avis-name">Thomas B.</div><div class="avis-date">Il y a 1 mois</div></div>
-        </div>
-      </div>
-          <div class="avis-card">
-        <svg class="avis-google-badge" viewBox="0 0 24 24" fill="none">
-          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-        </svg>
-        <div class="avis-stars">★★★★★</div>
-        <p class="avis-text">La double approche thérapie et coaching m'a permis à la fois de comprendre mes blocages et de passer à l'action. Cabinet facilement accessible dans le 13e.</p>
-        <div class="avis-author">
-          <div class="avis-avatar">S</div>
-          <div><div class="avis-name">Sophie M.</div><div class="avis-date">Il y a 2 mois</div></div>
-        </div>
-      </div>
-        </div>
-      </div>
-      <div class="carousel-nav">
+      <div class="carousel-main-row">
         <button class="carousel-btn" id="avis-prev" aria-label="Précédent">&#8592;</button>
-        <div class="carousel-dots" id="avis-dots"></div>
+        <div class="carousel-track-outer">
+          <div class="carousel-track avis-carousel-track" id="avis-track">
+            <div class="avis-card">
+              <svg class="avis-google-badge" viewBox="0 0 24 24" fill="none">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+              </svg>
+              <div class="avis-stars">★★★★★</div>
+              <p class="avis-text">Un accompagnement profond et bienveillant. Clément crée un espace de confiance rare, où l'on peut vraiment se dire les choses. Une expérience transformatrice.</p>
+              <div class="avis-author">
+                <div class="avis-avatar">M</div>
+                <div><div class="avis-name">Marie L.</div><div class="avis-date">Il y a 2 semaines</div></div>
+              </div>
+            </div>
+            <div class="avis-card">
+              <svg class="avis-google-badge" viewBox="0 0 24 24" fill="none">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+              </svg>
+              <div class="avis-stars">★★★★★</div>
+              <p class="avis-text">En quelques mois de suivi, j'ai pu comprendre ce qui s'était passé et retrouver une clarté que je pensais avoir perdue définitivement.</p>
+              <div class="avis-author">
+                <div class="avis-avatar">T</div>
+                <div><div class="avis-name">Thomas B.</div><div class="avis-date">Il y a 1 mois</div></div>
+              </div>
+            </div>
+            <div class="avis-card">
+              <svg class="avis-google-badge" viewBox="0 0 24 24" fill="none">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+              </svg>
+              <div class="avis-stars">★★★★★</div>
+              <p class="avis-text">La double approche thérapie et coaching m'a permis à la fois de comprendre mes blocages et de passer à l'action. Cabinet facilement accessible dans le 13e.</p>
+              <div class="avis-author">
+                <div class="avis-avatar">S</div>
+                <div><div class="avis-name">Sophie M.</div><div class="avis-date">Il y a 2 mois</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
         <button class="carousel-btn" id="avis-next" aria-label="Suivant">&#8594;</button>
+      </div>
+      <div class="carousel-dots-row">
+        <div class="carousel-dots" id="avis-dots"></div>
       </div>
     </div>
   </div>
@@ -1239,6 +1247,18 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
         <div class="info-row">
           <span class="icon">📍</span>
           <div class="info-text">15 rue du Dr Lucas-Championnière<br>75013 Paris<br><small>Place d'Italie · Gobelins · Maison Blanche</small></div>
+        </div>
+        <div class="info-row">
+          <span class="icon">📞</span>
+          <div class="info-text"><a href="tel:06XXXXXXXX" style="color:inherit;text-decoration:none;">06 XX XX XX XX</a></div>
+        </div>
+        <div class="info-row">
+          <span class="icon">✉️</span>
+          <div class="info-text"><a href="mailto:xxxxxx@gmail.com" style="color:inherit;text-decoration:none;">xxxxxx@gmail.com</a></div>
+        </div>
+        <div class="info-row">
+          <span class="icon">🕐</span>
+          <div class="info-text">Lundi au vendredi, de 9h à 12h et 14h à 17h<br><small>Sauf jours fériés</small></div>
         </div>
         <div class="info-row">
           <span class="icon">💻</span>
@@ -1296,7 +1316,22 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
 </footer>
 
 <script>
-// ── Carousel générique
+// ── Gestion FOUT police Oooh Baby
+document.documentElement.classList.add('fonts-loading');
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(function() {
+    document.documentElement.classList.remove('fonts-loading');
+    document.documentElement.classList.add('fonts-loaded');
+  });
+} else {
+  // Fallback : retirer la classe après 1s
+  setTimeout(function() {
+    document.documentElement.classList.remove('fonts-loading');
+    document.documentElement.classList.add('fonts-loaded');
+  }, 1000);
+}
+
+// ── Carousel générique (nouvelle version : flèches latérales)
 function initCarousel(trackId, prevId, nextId, dotsId, itemsPerView, darkDots) {
   var track = document.getElementById(trackId);
   var prev = document.getElementById(prevId);
@@ -1304,39 +1339,36 @@ function initCarousel(trackId, prevId, nextId, dotsId, itemsPerView, darkDots) {
   var dotsEl = document.getElementById(dotsId);
   if (!track) return;
 
-  var cards = track.children;
+  var cards = Array.from(track.children);
   var total = cards.length;
   var cur = 0;
-  var perView = itemsPerView;
 
-  // Responsive: sur mobile 1 seule carte
   function getPerView() {
-    return window.innerWidth <= 960 ? 1 : perView;
+    return window.innerWidth <= 960 ? 1 : itemsPerView;
   }
 
-  var steps = function() { return Math.ceil(total / getPerView()); };
+  function steps() { return Math.ceil(total / getPerView()); }
 
-  // Creer dots
   function buildDots() {
     dotsEl.innerHTML = '';
     var s = steps();
     for (var i = 0; i < s; i++) {
       var d = document.createElement('button');
       d.className = darkDots ? 'carousel-dot-dark' : 'carousel-dot';
-      d.setAttribute('aria-label', 'Page ' + (i+1));
-      (function(idx) { d.addEventListener('click', function(){ goTo(idx); }); })(i);
+      d.setAttribute('aria-label', 'Page ' + (i + 1));
+      (function(idx) { d.addEventListener('click', function() { goTo(idx); }); })(i);
       dotsEl.appendChild(d);
     }
+    // Masquer dots et flèches si 1 seule page
+    var single = s <= 1;
+    dotsEl.style.visibility = single ? 'hidden' : 'visible';
+    if (prev) prev.style.visibility = single ? 'hidden' : 'visible';
+    if (next) next.style.visibility = single ? 'hidden' : 'visible';
   }
 
   function updateDots() {
     var ds = dotsEl.querySelectorAll('button');
-    ds.forEach(function(d, i) {
-      d.classList.toggle('active', i === cur);
-      if (darkDots) {
-        d.classList.toggle('carousel-dot-dark', true);
-      }
-    });
+    ds.forEach(function(d, i) { d.classList.toggle('active', i === cur); });
   }
 
   function goTo(idx) {
@@ -1344,21 +1376,32 @@ function initCarousel(trackId, prevId, nextId, dotsId, itemsPerView, darkDots) {
     if (idx < 0) idx = 0;
     if (idx >= s) idx = s - 1;
     cur = idx;
+
     var pv = getPerView();
-    var cardW = track.parentElement.offsetWidth;
+    var outer = track.parentElement; // .carousel-track-outer
+    var outerW = outer.offsetWidth;
     var gap = 12;
-    var singleW = (cardW - gap * (pv - 1)) / pv;
-    var offset = cur * pv * (singleW + gap);
-    var maxOffset = (total - pv) * (singleW + gap);
+    var cardW = (outerW - gap * (pv - 1)) / pv;
+
+    // Ajuster chaque carte à la bonne largeur
+    cards.forEach(function(c) {
+      c.style.width = cardW + 'px';
+      c.style.minWidth = cardW + 'px';
+    });
+
+    var offset = cur * pv * (cardW + gap);
+    var maxOffset = (total - pv) * (cardW + gap);
     if (offset > maxOffset) offset = maxOffset;
+    if (offset < 0) offset = 0;
+
     track.style.transform = 'translateX(-' + offset + 'px)';
-    prev.disabled = cur === 0;
-    next.disabled = cur >= s - 1;
+    if (prev) prev.disabled = cur === 0;
+    if (next) next.disabled = cur >= s - 1;
     updateDots();
   }
 
-  prev.addEventListener('click', function() { goTo(cur - 1); });
-  next.addEventListener('click', function() { goTo(cur + 1); });
+  if (prev) prev.addEventListener('click', function() { goTo(cur - 1); });
+  if (next) next.addEventListener('click', function() { goTo(cur + 1); });
 
   window.addEventListener('resize', function() {
     buildDots();
@@ -1369,9 +1412,10 @@ function initCarousel(trackId, prevId, nextId, dotsId, itemsPerView, darkDots) {
   goTo(0);
 }
 
-initCarousel('accomp-track', 'accomp-prev', 'accomp-next', 'accomp-dots', 2, false);
-initCarousel('coaching-track', 'coaching-prev', 'coaching-next', 'coaching-dots', 2, true);
-initCarousel('avis-track', 'avis-prev', 'avis-next', 'avis-dots', 3, false);
+initCarousel('accomp-track',  'accomp-prev',  'accomp-next',  'accomp-dots',  2, false);
+initCarousel('gestalt-track', 'gestalt-prev', 'gestalt-next', 'gestalt-dots', 3, false);
+initCarousel('coaching-track','coaching-prev','coaching-next','coaching-dots', 2, true);
+initCarousel('avis-track',    'avis-prev',    'avis-next',    'avis-dots',    3, false);
 
 function sendMail() {
   var nom = document.querySelector('.form-group input[type="text"]').value || '';
@@ -1380,7 +1424,7 @@ function sendMail() {
   var msg = document.querySelector('.form-group textarea').value || '';
   var subject = encodeURIComponent('Demande de rendez-vous — ' + nom);
   var body = encodeURIComponent('Nom : ' + nom + '\nEmail : ' + email + '\nTéléphone : ' + tel + '\n\nMessage :\n' + msg);
-  window.location.href = 'mailto:carole.mlakar@gmail.com?subject=' + subject + '&body=' + body;
+  window.location.href = 'mailto:xxxxxx@gmail.com?subject=' + subject + '&body=' + body;
 }
 
 // ── Active nav
@@ -1412,29 +1456,6 @@ menu.querySelectorAll('a').forEach(function(link) {
     toggle.setAttribute('aria-expanded', false);
   });
 });
-
-// ── Smileys (conservés pour compatibilité)
-var smileys = document.querySelectorAll('.smiley-btn');
-var responseBox = document.getElementById('smiley-response');
-if (smileys.length && responseBox) {
-  var msgs = {
-    msg5: "C'est une belle nouvelle. Vous pouvez tout de meme trouver en therapie un espace pour mieux vous connaitre.",
-    msg4: "Vous tenez, mais quelque chose vous pese. Mettre des mots dessus est souvent le premier pas.",
-    msg3: "Entre les deux. Ce flottement merite votre attention.",
-    msg2: "C'est difficile en ce moment. Vous n'etes pas seul — prendre rendez-vous peut etre le geste le plus courageux.",
-    msg1: "Je vous entends. C'est exactement pour ces moments-la qu'un accompagnement existe."
-  };
-  smileys.forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      smileys.forEach(function(b) { b.classList.remove('selected'); b.closest('.smiley-item').classList.remove('active'); });
-      btn.classList.add('selected');
-      btn.closest('.smiley-item').classList.add('active');
-      responseBox.textContent = msgs[btn.getAttribute('data-msg')];
-      responseBox.style.display = 'block';
-    });
-  });
-}
 </script>
 </body>
 </html>
-
