@@ -118,7 +118,7 @@ section { scroll-margin-top: var(--nav-h); }
 /* HERO */
 #accueil {
   min-height: auto; background: var(--beige);
-  display: grid; grid-template-columns: 1fr 1fr;
+  display: block;
   padding-top: var(--nav-h); position: relative; overflow: hidden;
 }
 .hero-left {
@@ -157,12 +157,12 @@ section { scroll-margin-top: var(--nav-h); }
   position: relative; display: flex; align-items: center;
   justify-content: flex-end; padding: 48px 64px 48px 40px;
   overflow: hidden;
-  background: var(--vert);
+  background:
 }
 .hero-right-bg {
   position: absolute; inset: 0;
   background-size: cover; background-position: center;
-  opacity: 0.35;
+
   z-index: 0;
 }
 .hero-right-content {
@@ -204,6 +204,11 @@ section { scroll-margin-top: var(--nav-h); }
   display: flex; align-items: center; gap: 13px;
   box-shadow: 0 4px 14px rgba(0,0,0,0.2);
   width: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+.hero-score-card * {
+  text-decoration: none;
 }
 .hero-score-num {
   font-family: 'Cormorant Garamond', serif; font-size: 2.2rem;
@@ -258,7 +263,7 @@ section { scroll-margin-top: var(--nav-h); }
 .photo-caption { margin-top: 8px; font-size: 0.62rem; color: var(--muted); letter-spacing: 0.05em; text-align: center; }
 .about-text .signature {
   font-family: 'Cormorant Garamond', cursive;
-  font-size: 3rem; font-weight: 200;
+  font-size: 2rem; font-weight: 200;
   color: var(--anthracite); line-height: 1.0; margin-bottom: 28px; letter-spacing: 0.01em;
 }
 .about-text p { font-size: 0.87rem; line-height: 1.85; color: var(--text); margin-bottom: 14px; font-weight: 300; }
@@ -809,8 +814,28 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
 }
 .btn-deonto:hover { background: rgba(176,125,98,0.08); border-color: var(--copper); }
 
-/* RESPONSIVE */
+/* Hero carousel : styles de base = desktop (grille 2 colonnes)
+   Le @media (max-width: 960px) overridera en flex pour le carrousel */
+.hero-mobile-carousel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  transform: none;
+  transition: none;
+}
+.hero-mobile-slide {
+  width: auto;
+  min-width: 0;
+}
+.hero-carousel-nav { display: none; }
+.hero-mobile-slide .hero-left { padding: 48px 60px 48px 64px; }
+.hero-mobile-slide .hero-right {
+  padding: 48px 64px 48px 40px;
+  justify-content: flex-end;
+}
+
 @media (max-width: 960px) {
+
   nav { padding: 0 20px; }
   .nav-links {
     display: none; flex-direction: column;
@@ -838,15 +863,59 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
   text-transform: none; letter-spacing: 0.02em; width: 100%;
 }
 
-  #accueil { grid-template-columns: 1fr; min-height: auto; }
-  .hero-left { padding: calc(var(--nav-h) + 38px) 20px 32px; }
-  .hero-right {
-    display: flex;
-    padding: 32px 20px;
-    justify-content: center;
-    min-height: 280px;
+  /* ── Hero mobile : carrousel 2 slides ── */
+  #accueil {
+    display: block;
+    position: relative;
+    overflow: hidden;
   }
-  .hero-right-content { width: 100%; max-width: 400px; }
+  .hero-mobile-carousel {
+    display: flex;
+    width: 200%;
+    transition: transform 0.38s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+  .hero-mobile-slide {
+    width: 50%;
+    flex-shrink: 0;
+    box-sizing: border-box;
+  }
+  /* Slide 1 = hero-left, slide 2 = hero-right */
+  .hero-mobile-slide .hero-left {
+    padding: calc(var(--nav-h) + 32px) 20px 28px;
+    min-height: auto;
+  }
+  .hero-mobile-slide .hero-right {
+    padding: 28px 20px 32px;
+    min-height: auto;
+    justify-content: center;
+  }
+  /* Boutons de navigation du carrousel hero */
+  .hero-carousel-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 0 18px;
+    background: var(--beige);
+  }
+  .hero-carousel-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: rgba(61,92,78,0.25);
+    border: none; padding: 0; cursor: pointer;
+    transition: all 0.2s; outline: none;
+  }
+  .hero-carousel-dot.active {
+    background: var(--sage); width: 22px; border-radius: 3px;
+  }
+  .hero-carousel-arrow {
+    background: none; border: 1.5px solid rgba(61,92,78,0.35);
+    border-radius: 50%; width: 32px; height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; color: var(--sage); font-size: 0.85rem;
+    transition: all 0.2s; outline: none;
+  }
+  .hero-carousel-arrow:hover { background: var(--sage); color: var(--white); border-color: var(--sage); }
+  .hero-carousel-arrow:disabled { opacity: 0.2; cursor: default; }
 
   /* A propos mobile — réorganisation */
   .two-col { grid-template-columns: 1fr; gap: 0; }
@@ -859,12 +928,16 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
     align-items: center;
   }
   .about-photo-wrapper {
-    width: 160px;
+    width: 100%;
+    max-width: 100%;
   }
   .about-photo-wrapper img,
   .about-photo-placeholder {
-    max-width: 160px;
-    width: 160px;
+    max-width: 100%;
+    width: 100%;
+    border-radius: 8px;
+    aspect-ratio: 4/5;
+    object-fit: cover;
   }
   .photo-overlay-card { display: none; }
   .about-photo-tags {
@@ -936,41 +1009,52 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
 
 <!-- HERO -->
 <section id="accueil">
-  <div class="hero-left">
-    <p class="hero-eyebrow">Praticien en Psychothérapie Gestalt Certifié · Paris 13e</p>
-    <h1 class="hero-name">Clément Petit</h1>
-    <h2 class="hero-subtitle">Praticien en Psychothérapie Gestalt &amp; Coach de vie professionnelle à Paris 13e</h2>
-    <p class="hero-tagline">Un espace pour comprendre ce qui vous freine, traverser la souffrance au travail et retrouver du sens.</p>
-    <div class="hero-actions">
-      <a href="#contact" class="btn-primary">Prendre rendez-vous</a>
-      <a href="#Psychothérapie" class="btn-secondary">Mes accompagnements</a>
+  <!-- Carrousel mobile : wrapper visible seulement sur mobile via JS -->
+  <div class="hero-mobile-carousel" id="hero-carousel">
+    <!-- Slide 1 : texte + CTA -->
+    <div class="hero-mobile-slide">
+      <div class="hero-left">
+        <p class="hero-eyebrow">Praticien en Psychothérapie Gestalt Certifié · Paris 13e</p>
+        <h1 class="hero-name">Clément Petit</h1>
+        <h2 class="hero-subtitle">Praticien en Psychothérapie Gestalt &amp; Coach de vie professionnelle à Paris 13e</h2>
+        <p class="hero-tagline">Un espace pour comprendre ce qui vous freine, traverser la souffrance au travail et retrouver du sens.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">Prendre rendez-vous</a>
+          <a href="#Psychothérapie" class="btn-secondary">Mes accompagnements</a>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 2 : infos cabinet + avis -->
+    <div class="hero-mobile-slide">
+      <div class="hero-right">
+        <div class="hero-right-bg" style="background-image:url('photo-cabinet-Paris-13.png');"></div>
+        <div class="hero-right-content">
+          <div class="hero-info-card">
+            <p class="hic-label">Cabinet · 15 rue du Dr Lucas-Championnière · 75013</p>
+            <p>Séances individuelles en présentiel au 13e arrondissement — proche Place d'Italie, Butte-aux-Cailles, Gobelins — ou à distance.</p>
+            <div class="hero-info-item">Pour RDV : 80 €</div>
+            <div class="hero-info-item">Prise de RDV via le formulaire de contact</div>
+            <div class="hero-info-item">Paris 13e · Proche Place d'Italie</div>
+          </div>
+          <a href="www.google.fr" target="_blank" rel="noopener" class="hero-score-card">
+            <div class="hero-score-num">5.0</div>
+            <div class="hero-score-detail">
+              <div class="hero-score-stars">★★★★★</div>
+              <div class="hero-score-label">Note Google · 12 avis</div>
+            </div>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="hero-right">
-    <div class="hero-right-bg" style="background-image:url('photo-cabinet-Paris-13.PNG');"></div>
-    <div class="hero-right-content">
-      <div class="hero-info-card">
-        <p class="hic-label">Cabinet · 15 rue du Dr Lucas-Championnière · 75013</p>
-        <p>Séances individuelles en présentiel au 13e arrondissement — proche Place d'Italie, Butte-aux-Cailles, Gobelins — ou à distance.</p>
-        <div class="hero-info-item">Pour RDV : 80 €</div>
-        <div class="hero-info-item">Prise de RDV via le formulaire de contact</div>
-        <div class="hero-info-item">Paris 13e · Proche Place d'Italie</div>
-      </div>
-	<a href="www.google.fr" target="_blank" rel="noopener" class="hero-score-card">
-  <div class="hero-score-num">5.0</div>
-  <div class="hero-score-detail">
-  <div class="hero-score-stars">★★★★★</div>
-  <div class="hero-score-label">Note Google · 12 avis</div>
-      </div>
-	</a>  
-    </div>
+  <!-- Navigation carrousel hero (mobile uniquement) -->
+  <div class="hero-carousel-nav" id="hero-carousel-nav" style="display:none;">
+    <button class="hero-carousel-arrow" id="hero-prev" aria-label="Précédent" disabled>&#8592;</button>
+    <button class="hero-carousel-dot active" id="hero-dot-0" aria-label="Slide 1"></button>
+    <button class="hero-carousel-dot" id="hero-dot-1" aria-label="Slide 2"></button>
+    <button class="hero-carousel-arrow" id="hero-next" aria-label="Suivant">&#8594;</button>
   </div>
 </section>
-
-<!-- SEPARATEUR -->
-<div class="sep-dots">
-  <span></span><span></span><span></span><span></span><span></span>
-</div>
 
 <!-- A PROPOS -->
 <section id="a-propos">
@@ -1369,7 +1453,68 @@ if (document.fonts && document.fonts.ready) {
   }, 1000);
 }
 
-// ── Carousel générique (nouvelle version : flèches latérales)
+// ── Hero mobile carousel
+(function() {
+  var carousel = document.getElementById('hero-carousel');
+  var nav      = document.getElementById('hero-carousel-nav');
+  var prev     = document.getElementById('hero-prev');
+  var next     = document.getElementById('hero-next');
+  var dots     = [document.getElementById('hero-dot-0'), document.getElementById('hero-dot-1')];
+  var cur = 0;
+
+  function isMobile() { return window.innerWidth <= 960; }
+
+  function setup() {
+    if (isMobile()) {
+      carousel.style.display = 'flex';
+      nav.style.display = 'flex';
+      goTo(cur);
+    } else {
+      // Desktop : revenir à la grille 2 colonnes
+      carousel.style.display = '';
+      carousel.style.transform = '';
+      carousel.style.width = '';
+      nav.style.display = 'none';
+      // Remettre les slides en affichage normal
+      var slides = carousel.querySelectorAll('.hero-mobile-slide');
+      slides.forEach(function(s) { s.style.width = ''; });
+    }
+  }
+
+  function goTo(idx) {
+    if (idx < 0) idx = 0;
+    if (idx > 1) idx = 1;
+    cur = idx;
+    // Chaque slide fait 50% de carousel (200% total), donc offset = idx * 50%
+    carousel.style.transform = 'translateX(-' + (idx * 50) + '%)';
+    dots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
+    if (prev) prev.disabled = cur === 0;
+    if (next) next.disabled = cur === 1;
+  }
+
+  // Swipe tactile
+  var touchStartX = 0;
+  carousel.addEventListener('touchstart', function(e) {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+  carousel.addEventListener('touchend', function(e) {
+    if (!isMobile()) return;
+    var diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) {
+      goTo(diff > 0 ? cur + 1 : cur - 1);
+    }
+  }, { passive: true });
+
+  if (prev) prev.addEventListener('click', function() { goTo(cur - 1); });
+  if (next) next.addEventListener('click', function() { goTo(cur + 1); });
+  dots.forEach(function(d, i) { d.addEventListener('click', function() { goTo(i); }); });
+
+  // Sur desktop, rétablir la grille hero native
+  window.addEventListener('resize', function() { setup(); });
+  setup();
+})();
+
+
 function initCarousel(trackId, prevId, nextId, dotsId, itemsPerView, darkDots) {
   var track = document.getElementById(trackId);
   var prev = document.getElementById(prevId);
