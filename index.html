@@ -157,18 +157,28 @@ section { scroll-margin-top: var(--nav-h); }
   position: relative; display: flex; align-items: center;
   justify-content: flex-end; padding: 48px 64px 48px 40px;
   overflow: hidden;
+  background: var(--vert);
 }
 .hero-right-bg {
   position: absolute; inset: 0;
-  background-image: url('hero-cabinet.jpg');
   background-size: cover; background-position: center;
   opacity: 0.35;
   z-index: 0;
 }
+.hero-right-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 255px;
+}
 .hero-info-card {
-  background: var(--anthracite); color: var(--white); border-radius: 8px;
-  padding: 22px 24px; width: 255px; position: relative; z-index: 2;
+  background: rgba(44,44,44,0.72); color: var(--white); border-radius: 8px;
+  padding: 22px 24px; width: 100%; position: relative;
   box-shadow: 0 12px 40px rgba(44,44,44,0.35);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 .hero-info-card .hic-label {
   font-size: 0.57rem; letter-spacing: 0.2em; text-transform: uppercase;
@@ -187,6 +197,20 @@ section { scroll-margin-top: var(--nav-h); }
   content: ''; width: 4px; height: 4px; border-radius: 50%;
   background: var(--sage-lt); flex-shrink: 0; margin-top: 6px;
 }
+/* Score card dans le hero */
+.hero-score-card {
+  background: var(--beige);
+  border-radius: 7px; padding: 12px 18px;
+  display: flex; align-items: center; gap: 13px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+  width: 100%;
+}
+.hero-score-num {
+  font-family: 'Cormorant Garamond', serif; font-size: 2.2rem;
+  font-weight: 300; color: var(--vert); line-height: 1;
+}
+.hero-score-stars { color: #F5C842; font-size: 0.82rem; letter-spacing: 2px; margin-bottom: 2px; }
+.hero-score-label { font-size: 0.61rem; color: var(--vert); font-weight: 300; opacity: 0.8; }
 
 /* A PROPOS */
 #a-propos { background: var(--beige); padding: 48px 0 56px; position: relative; overflow: hidden; }
@@ -254,7 +278,7 @@ section { scroll-margin-top: var(--nav-h); }
 .certif-block a:hover { text-decoration: underline; }
 
 /* ─────────────────────────────────────────
-   SECTION FUSIONNEE : Psychothérapie + GESTALT
+   SECTION PSYCHOTERAPIE + COACHING
 ───────────────────────────────────────── */
 #Psychothérapie {
   background: var(--vert);
@@ -299,9 +323,7 @@ section { scroll-margin-top: var(--nav-h); }
   margin-bottom: 32px; line-height: 1.6;
 }
 
-/* ─────────────────────────────────────────
-   CAROUSEL — REFONTE : flèches latérales
-───────────────────────────────────────── */
+/*   CAROUSEL */
 .carousel-wrap {
   position: relative;
   display: flex;
@@ -460,9 +482,7 @@ section { scroll-margin-top: var(--nav-h); }
   background: linear-gradient(to right, var(--copper), #d4a080);
 }
 
-/* ─────────────────────────────────────────
-   SECTION COACHING
-───────────────────────────────────────── */
+/* SECTION COACHING*/
 #coaching {
   background: var(--vert); padding: 52px 0;
   position: relative; overflow: hidden;
@@ -803,20 +823,30 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
   .nav-links a { display: block; padding: 10px 0; font-size: 0.76rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
   .nav-cta, .nav-deonto { margin-top: 9px; padding: 9px 18px; text-align: center; border-radius: 4px; border-bottom: none !important; display: block; }
   .nav-toggle { display: flex; }
-  /* Infos contact nav : dans le menu mobile */
+  /* Infos contact nav : cachées sur desktop, visibles dans menu mobile */
   .nav-contact-info { display: none; }
-  .nav-links .nav-contact-mobile {
-    padding: 12px 0 4px; border-bottom: none !important;
-  }
-  .nav-links .nav-contact-mobile a {
-    display: block; padding: 4px 0; font-size: 0.75rem;
-    color: rgba(255,255,255,0.45) !important; border-bottom: none !important;
-    text-transform: none; letter-spacing: 0.02em;
-  }
 
-  #accueil { grid-template-columns: 1fr; }
-  .hero-left { padding: calc(var(--nav-h) + 38px) 20px 50px; }
-  .hero-right { display: none; }
+.nav-links .nav-contact-mobile {
+  padding: 10px 0 4px; border-bottom: none !important;
+  display: flex !important;
+  flex-direction: column;
+  gap: 2px;
+}
+.nav-links .nav-contact-mobile a {
+  display: block !important; padding: 4px 0; font-size: 0.75rem;
+  color: rgba(255,255,255,0.5) !important; border-bottom: none !important;
+  text-transform: none; letter-spacing: 0.02em; width: 100%;
+}
+
+  #accueil { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: calc(var(--nav-h) + 38px) 20px 32px; }
+  .hero-right {
+    display: flex;
+    padding: 32px 20px;
+    justify-content: center;
+    min-height: 280px;
+  }
+  .hero-right-content { width: 100%; max-width: 400px; }
 
   /* A propos mobile — réorganisation */
   .two-col { grid-template-columns: 1fr; gap: 0; }
@@ -854,7 +884,7 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
   .gestalt-sub-header { grid-template-columns: 1fr; gap: 20px; }
   .coaching-bottom { grid-template-columns: 1fr; gap: 34px; }
   .contact-grid { grid-template-columns: 1fr; gap: 34px; }
-  .avis-header-wrap { flex-direction: column; }
+  .avis-header-wrap { flex-direction: column; align-items: flex-start; }
 
   .container { padding: 0 18px; }
   #a-propos, #Psychothérapie, #coaching, #avis, #contact { padding: 38px 0; }
@@ -887,19 +917,18 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
 <nav>
   <a href="#accueil" class="nav-logo">
     <span class="nav-logo-name">Clément Petit</span>
-    <span class="nav-logo-sub">Praticien en Psychothérapie Gestalt · Paris 13e</span>
-  </a>
+    <span class="nav-logo-sub">Praticien en Psychothérapie Gestalt · Paris 13e</span></a>
   <ul class="nav-links" id="nav-menu">
+      <li class="nav-contact-mobile">
+      <a href="tel:06XXXXXXXX">📞 06 XX XX XX XX</a> <br>
+      <a href="mailto:xxxxxx@gmail.com">✉ xxxxxx@gmail.com</a>
+    </li><br><br>
     <li><a href="#a-propos">À propos</a></li>
     <li><a href="#Psychothérapie">Psychothérapie</a></li>
     <li><a href="#coaching">Coaching</a></li>
     <li><a href="#avis">Avis</a></li>
     <li><a href="#contact" class="nav-cta">Prendre RDV</a></li>
   </ul>
-  <div class="nav-contact-info">
-    <a href="tel:06XXXXXXXX" class="nav-phone">📞 06XXXXXXXX</a>
-    <a href="mailto:xxxxxx@gmail.com" class="nav-email">✉ xxxxxx@gmail.com</a>
-  </div>
   <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
@@ -918,13 +947,22 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
     </div>
   </div>
   <div class="hero-right">
-    <div class="hero-right-bg"></div>
-    <div class="hero-info-card">
-      <p class="hic-label">Cabinet · 15 rue du Dr Lucas-Championnière · 75013</p>
-      <p>Séances individuelles en présentiel au 13e arrondissement — proche Place d'Italie, Butte-aux-Cailles, Gobelins — ou à distance.</p>
-      <div class="hero-info-item">Pour RDV : 80 €</div>
-      <div class="hero-info-item">Prise de RDV via le formulaire de contact</div>
-      <div class="hero-info-item">Paris 13e · Proche Place d'Italie</div>
+    <div class="hero-right-bg" style="background-image:url('photo-cabinet-Paris-13.PNG');"></div>
+    <div class="hero-right-content">
+      <div class="hero-info-card">
+        <p class="hic-label">Cabinet · 15 rue du Dr Lucas-Championnière · 75013</p>
+        <p>Séances individuelles en présentiel au 13e arrondissement — proche Place d'Italie, Butte-aux-Cailles, Gobelins — ou à distance.</p>
+        <div class="hero-info-item">Pour RDV : 80 €</div>
+        <div class="hero-info-item">Prise de RDV via le formulaire de contact</div>
+        <div class="hero-info-item">Paris 13e · Proche Place d'Italie</div>
+      </div>
+	<a href="www.google.fr" target="_blank" rel="noopener" class="hero-score-card">
+  <div class="hero-score-num">5.0</div>
+  <div class="hero-score-detail">
+  <div class="hero-score-stars">★★★★★</div>
+  <div class="hero-score-label">Note Google · 12 avis</div>
+      </div>
+	</a>  
     </div>
   </div>
 </section>
@@ -942,7 +980,7 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
       <div class="about-photo-col">
         <div class="about-photo-wrapper">
           <img
-            src="Clement PETIT therapeute gestalt coach Paris 13 Gestalt.png"
+            src="CP therapeute gestalt Paris 13.png"
             alt="Clément PETIT, praticien en Psychothérapie Gestalt à Paris 13e"
             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
           >
