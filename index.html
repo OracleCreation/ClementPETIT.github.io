@@ -6,17 +6,18 @@
 <title>Clément PETIT — Praticien en Psychothérapie Gestalt · Paris 13e · Prévention au burn-out, Anxiété, Sens au travail</title>
 <meta name="description" content="Clément PETIT, praticien en Psychothérapie Gestalt certifié à Paris 13e. Prévention au burn-out, anxiété, souffrance au travail, perte de sens.">
 <link rel="canonical" href="https://www.clementpetit-psychotherapeute.fr/">
-<!-- Préchargement police pour éviter FOUT -->
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&family=Oooh+Baby&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Inter:wght@300;400;500&family=Oooh+Baby&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Inter:wght@300;400;500&family=Oooh+Baby&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Inter:wght@300;400;500&family=Oooh+Baby&display=swap" rel="stylesheet"></noscript>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"MedicalBusiness","name":"Clément PETIT — Praticien en Psychothérapie Gestalt","url":"https://www.clementpetit-psychotherapeute.fr/","address":{"@type":"PostalAddress","streetAddress":"15 rue du Dr Lucas-Championnière","addressLocality":"Paris","postalCode":"75013","addressCountry":"FR"}}
+{"@context":"https://schema.org","@type":"MedicalBusiness","name":"Clément PETIT — Praticien en Psychothérapie Gestalt","url":"https://www.clementpetit-psychotherapeute.fr/","address":{"@type":"PostalAddress","streetAddress":"3 rue du Dr Lucas-Championnière","addressLocality":"Paris","postalCode":"75013","addressCountry":"FR"}}
 </script>
 <style>
 :root {
   --ivory:      #F5F0E8;
-  --ivory-lt:   #FAF7F2;
   --sage-dk:    #3D5C4E;
   --sage:       #4A6B5D;
   --sage-mid:   #5C7A6B;
@@ -86,20 +87,6 @@ nav {
   transition: background 0.2s !important;
 }
 .nav-cta:hover { background: #6a817b !important; }
-.nav-contact-info {
-  display: flex; flex-direction: column; gap: 2px; align-items: flex-end;
-  margin-right: 8px;
-}
-.nav-phone {
-  font-size: 0.68rem; color: rgba(255,255,255,0.65); letter-spacing: 0.04em;
-  text-decoration: none; transition: color 0.2s;
-}
-.nav-phone:hover { color: var(--white); }
-.nav-email {
-  font-size: 0.6rem; color: rgba(255,255,255,0.45); letter-spacing: 0.04em;
-  text-decoration: none; transition: color 0.2s;
-}
-.nav-email:hover { color: rgba(255,255,255,0.75); }
 .nav-toggle {
   display: none; flex-direction: column; gap: 5px;
   cursor: pointer; background: none; border: none; padding: 4px;
@@ -177,8 +164,8 @@ section { scroll-margin-top: var(--nav-h); }
   background: rgba(44,44,44,0.72); color: var(--white); border-radius: 8px;
   padding: 22px 24px; width: 100%; position: relative;
   box-shadow: 0 12px 40px rgba(44,44,44,0.35);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
 }
 .hero-info-card .hic-label {
   font-size: 0.57rem; letter-spacing: 0.2em; text-transform: uppercase;
@@ -233,7 +220,7 @@ section { scroll-margin-top: var(--nav-h); }
 .about-photo-wrapper { position: relative; }
 .about-photo-wrapper img {
   width: 100%; max-width: 255px; border-radius: 6px;
-  display: block; object-fit: cover; aspect-ratio: 4/5;
+  display: block; height: auto;
 }
 .about-photo-placeholder {
   background: var(--sage-xs); border-radius: 6px; aspect-ratio: 4/5;
@@ -241,16 +228,6 @@ section { scroll-margin-top: var(--nav-h); }
   justify-content: center; border: 1px solid rgba(74,107,93,0.2);
   color: var(--sage); font-size: 0.75rem; letter-spacing: 0.1em;
   text-transform: uppercase; text-align: center; padding: 20px;
-}
-.photo-overlay-card {
-  position: absolute; bottom: -14px; right: -18px;
-  background: var(--anthracite); color: var(--white);
-  border-radius: 6px; padding: 11px 15px; width: 124px;
-  box-shadow: 0 8px 22px rgba(44,44,44,0.18); text-align: center;
-}
-.photo-overlay-card .poc-title {
-  font-size: 0.63rem; font-weight: 500; color: var(--white);
-  letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.4;
 }
 .about-photo-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 28px; }
 .tag {
@@ -295,7 +272,6 @@ section { scroll-margin-top: var(--nav-h); }
 #Psychothérapie .gestalt-sub-label { color: rgba(244,240,234,0.7); }
 #Psychothérapie .gestalt-sub-title { color: var(--beige); }
 #Psychothérapie .gestalt-sub-intro { color: rgba(244,240,234,0.75); }
-#Psychothérapie .pb-other-themes { color: rgba(244,240,234,0.65); }
 #Psychothérapie .btn-primary { background: var(--beige); color: var(--vert); }
 #Psychothérapie .btn-primary:hover { background: #e8e3dc; color: var(--vert); transform: translateY(-1px); }
 #Psychothérapie .pb-card { background: rgba(244,240,234,0.14); border-color: rgba(244,240,234,0.25); box-shadow: none; }
@@ -328,7 +304,45 @@ section { scroll-margin-top: var(--nav-h); }
   margin-bottom: 32px; line-height: 1.6;
 }
 
-/*   CAROUSEL */
+/* ── Carrousels CSS infinis (accompagnements + coaching) ── */
+@keyframes carousel-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.carousel-infinite {
+  position: relative;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+}
+.carousel-infinite .carousel-track {
+  animation: carousel-scroll 26s linear infinite;
+  transition: none;
+}
+.carousel-infinite:hover .carousel-track { animation-play-state: paused; }
+.carousel-infinite .carousel-main-row  { display: contents; }
+.carousel-infinite .carousel-track-outer { display: contents; }
+
+/* Cards dans les carousels infinis CSS : largeur adaptée au contenu */
+.carousel-infinite .carousel-track .pb-card {
+  width: auto;
+  min-width: 180px;
+  max-width: 280px;
+  flex-shrink: 0;
+}
+.carousel-infinite .coaching-carousel-track .coaching-pb-card {
+  width: auto;
+  min-width: 180px;
+  max-width: 280px;
+  flex-shrink: 0;
+}
+#coaching .carousel-infinite .carousel-track { animation-duration: 22s; }
+
+/* Logos certifications */
+.certif-logos { margin-top: 10px; display: flex; align-items: center; }
+.certif-logos img { height: 38px; width: auto; max-width: 100%; display: block; }
+
+/*   CAROUSEL JS classique (Gestalt + Avis) */
 .carousel-wrap {
   position: relative;
   display: flex;
@@ -350,8 +364,9 @@ section { scroll-margin-top: var(--nav-h); }
   display: flex;
   transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   gap: 12px;
-  will-change: transform;
+  align-items: stretch;
 }
+.carousel-track:hover { will-change: transform; }
 /* Dots en bas (fil d'ariane) */
 .carousel-dots-row {
   display: flex;
@@ -381,10 +396,12 @@ section { scroll-margin-top: var(--nav-h); }
 }
 .carousel-dot.active { background: var(--sage); width: 20px; border-radius: 3px; }
 
-/* Cards Psychothérapie dans carousel */
-.carousel-track .pb-card {
+/* Cards Psychothérapie dans carousel JS */
+.gestalt-carousel-track .gestalt-card-light {
   flex-shrink: 0;
-  width: calc(50% - 6px);
+  width: calc(33.333% - 8px);
+  height: auto;
+  align-self: stretch;
 }
 
 /* Cards Psychothérapie */
@@ -454,6 +471,8 @@ section { scroll-margin-top: var(--nav-h); }
 .gestalt-carousel-track .gestalt-card-light {
   flex-shrink: 0;
   width: calc(33.333% - 8px);
+  height: auto;
+  align-self: stretch;
 }
 .gestalt-card-light {
   background: var(--white);
@@ -461,6 +480,9 @@ section { scroll-margin-top: var(--nav-h); }
   border-radius: 7px; padding: 18px 20px;
   transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
   position: relative; overflow: hidden;
+  height: auto;
+  display: flex;
+  flex-direction: column;
 }
 .gestalt-card-light::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
@@ -520,10 +542,12 @@ section { scroll-margin-top: var(--nav-h); }
 #coaching .coaching-video-title { color: var(--beige); }
 #coaching .yt-caption { color: rgba(244,240,234,0.5); }
 
-/* Carousel coaching */
-.coaching-carousel-track .coaching-pb-card {
+/* Carousel coaching JS classique : 2 cartes par page */
+:not(.carousel-infinite) > .carousel-track-outer > .coaching-carousel-track .coaching-pb-card {
   flex-shrink: 0;
   width: calc(50% - 6px);
+  height: auto;
+  align-self: stretch;
 }
 .coaching-pb-card {
   background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
@@ -531,6 +555,7 @@ section { scroll-margin-top: var(--nav-h); }
   gap: 13px; align-items: flex-start;
   transition: background 0.2s, transform 0.2s;
   position: relative; overflow: hidden;
+  height: auto;
 }
 .coaching-pb-card::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
@@ -742,7 +767,7 @@ section { scroll-margin-top: var(--nav-h); }
 .tarif-card .price-label { font-size: 0.64rem; color: rgba(255,255,255,0.45); font-weight: 300; line-height: 1.4; }
 .contact-form-zone {
   background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09);
-  border-radius: 8px; padding: 26px; backdrop-filter: blur(4px);
+  border-radius: 8px; padding: 26px;
 }
 .contact-form-zone h3 {
   font-family: 'Cormorant Garamond', serif; font-size: 1.25rem;
@@ -846,7 +871,7 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
   .nav-links.open { display: flex; }
   .nav-links li { width: 100%; }
   .nav-links a { display: block; padding: 10px 0; font-size: 0.76rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
-  .nav-cta, .nav-deonto { margin-top: 9px; padding: 9px 18px; text-align: center; border-radius: 4px; border-bottom: none !important; display: block; }
+  .nav-cta { margin-top: 9px; padding: 9px 18px; text-align: center; border-radius: 4px; border-bottom: none !important; display: block; }
   .nav-toggle { display: flex; }
   /* Infos contact nav : cachées sur desktop, visibles dans menu mobile */
   .nav-contact-info { display: none; }
@@ -929,15 +954,14 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
   }
   .about-photo-wrapper {
     width: 100%;
-    max-width: 100%;
+    max-width: 220px;
   }
   .about-photo-wrapper img,
   .about-photo-placeholder {
     max-width: 100%;
     width: 100%;
     border-radius: 8px;
-    aspect-ratio: 4/5;
-    object-fit: cover;
+    height: auto;
   }
   .photo-overlay-card { display: none; }
   .about-photo-tags {
@@ -997,7 +1021,7 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
       <a href="mailto:xxxxxx@gmail.com">✉ xxxxxx@gmail.com</a>
     </li><br><br>
     <li><a href="#a-propos">À propos</a></li>
-    <li><a href="#Psychothérapie">Psychothérapie</a></li>
+    <li><a href="#Psychothérapie">Psychothérapie Gestalt</a></li>
     <li><a href="#coaching">Coaching</a></li>
     <li><a href="#avis">Avis</a></li>
     <li><a href="#contact" class="nav-cta">Prendre RDV</a></li>
@@ -1030,11 +1054,11 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
         <div class="hero-right-bg" style="background-image:url('photo-cabinet-Paris-13.png');"></div>
         <div class="hero-right-content">
           <div class="hero-info-card">
-            <p class="hic-label">Cabinet · 15 rue du Dr Lucas-Championnière · 75013</p>
+            <p class="hic-label">Cabinet · 3 rue du Dr Lucas-Championnière · 75013</p>
             <p>Séances individuelles en présentiel au 13e arrondissement — proche Place d'Italie, Butte-aux-Cailles, Gobelins — ou à distance.</p>
             <div class="hero-info-item">Pour RDV : 80 €</div>
             <div class="hero-info-item">Prise de RDV via le formulaire de contact</div>
-            <div class="hero-info-item">Paris 13e · Proche Place d'Italie</div>
+            <div class="hero-info-item">Paris 13e ·  Métro Maison Blanche (Ligne 14 et 7), TRAM 3</div>
           </div>
           <a href="www.google.fr" target="_blank" rel="noopener" class="hero-score-card">
             <div class="hero-score-num">5.0</div>
@@ -1079,7 +1103,7 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
           <span class="tag">Anxiété &amp; stress</span>
           <span class="tag">Paris 13e</span>
         </div>
-        <p class="photo-caption">15 rue du Dr Lucas-Championnière · 75013 Paris</p>
+        <p class="photo-caption">3 rue du Dr Lucas-Championnière · 75013 Paris</p>
         <a href="deontologie.html" class="btn-deonto">Ma déontologie</a>
       </div>
       <div class="about-text">
@@ -1095,6 +1119,9 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
             <li>Coach de vie professionnelle certifié <a href="https://www.academie-coaching.fr/" target="_blank">RNCP par l'Académie du Coaching</a></li>
             <li>Membre de la <a href="http://www.ff2p.fr/" target="_blank">FF2P</a> et de l'<a href="http://www.emccfrance.org/" target="_blank">EMCC</a></li>
           </ul>
+          <div class="certif-logos">
+            <img src="Logos.png" alt="Logos des organismes : GESTALT IFFP, Académie du Coaching, FF2P, EAP OWCP, EMCC France">
+          </div>
         </div>
       </div>
     </div>
@@ -1109,42 +1136,22 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
     <h2 class="section-title">Je vous accompagne en psychothérapie gestaltiste individuelle…</h2>
     <p class="section-subtitle">Chaque situation est unique. Ces thématiques ci-dessous sont des points d'entrée, mais d'autres thématiques peuvent bien entendu être abordées en séance. Chaque accompagnement est construit sur mesure, en fonction de votre situation et de ce qui vous amène.</p>
 
-    <!-- Carousel situations -->
-    <div class="carousel-wrap" id="accomp-carousel">
+    <!-- Carousel situations — défilement infini CSS -->
+    <div class="carousel-infinite" id="accomp-carousel">
       <div class="carousel-main-row">
-        <button class="carousel-btn" id="accomp-prev" aria-label="Précédent">&#8592;</button>
         <div class="carousel-track-outer">
           <div class="carousel-track" id="accomp-track">
-            <div class="pb-card">
-              <div class="pb-icon">🔥</div>
-              <div class="pb-content">
-                <h3>Epuisement professionnel &amp; souffrance au travail</h3>
-              </div>
-            </div>
-            <div class="pb-card">
-              <div class="pb-icon">🧭</div>
-              <div class="pb-content">
-                <h3>Perte de sens &amp; transitions professionnelles</h3>
-              </div>
-            </div>
-            <div class="pb-card">
-              <div class="pb-icon">🤝</div>
-              <div class="pb-content">
-                <h3>Relations professionnelles difficiles</h3>
-              </div>
-            </div>
-            <div class="pb-card">
-              <div class="pb-icon">🌊</div>
-              <div class="pb-content">
-                <h3>Anxiété &amp; stress chronique</h3>
-              </div>
-            </div>
+            <div class="pb-card"><div class="pb-icon">🔥</div><div class="pb-content"><h3>Epuisement professionnel &amp; souffrance au travail</h3></div></div>
+            <div class="pb-card"><div class="pb-icon">🧭</div><div class="pb-content"><h3>Perte de sens &amp; transitions professionnelles</h3></div></div>
+            <div class="pb-card"><div class="pb-icon">🤝</div><div class="pb-content"><h3>Relations professionnelles difficiles</h3></div></div>
+            <div class="pb-card"><div class="pb-icon">🌊</div><div class="pb-content"><h3>Anxiété &amp; stress chronique</h3></div></div>
+            <!-- Clones boucle infinie -->
+            <div class="pb-card" aria-hidden="true"><div class="pb-icon">🔥</div><div class="pb-content"><h3>Epuisement professionnel &amp; souffrance au travail</h3></div></div>
+            <div class="pb-card" aria-hidden="true"><div class="pb-icon">🧭</div><div class="pb-content"><h3>Perte de sens &amp; transitions professionnelles</h3></div></div>
+            <div class="pb-card" aria-hidden="true"><div class="pb-icon">🤝</div><div class="pb-content"><h3>Relations professionnelles difficiles</h3></div></div>
+            <div class="pb-card" aria-hidden="true"><div class="pb-icon">🌊</div><div class="pb-content"><h3>Anxiété &amp; stress chronique</h3></div></div>
           </div>
         </div>
-        <button class="carousel-btn" id="accomp-next" aria-label="Suivant">&#8594;</button>
-      </div>
-      <div class="carousel-dots-row">
-        <div class="carousel-dots" id="accomp-dots"></div>
       </div>
     </div>
 
@@ -1209,42 +1216,22 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
     <h2 class="section-title">… ou en coaching professionnel selon vos besoins.</h2>
     <p class="section-subtitle">Le coaching est distinct de la thérapie : il est orienté vers l'action, les objectifs concrets et le déploiement de vos ressources. Je propose les deux modalités, et nous déterminons ensemble ce dont vous avez besoin.</p>
 
-    <!-- Carousel coaching -->
-    <div class="carousel-wrap" id="coaching-carousel">
+    <!-- Carousel coaching — défilement infini CSS -->
+    <div class="carousel-infinite" id="coaching-carousel">
       <div class="carousel-main-row">
-        <button class="carousel-btn-dark" id="coaching-prev" aria-label="Précédent">&#8592;</button>
         <div class="carousel-track-outer">
           <div class="carousel-track coaching-carousel-track" id="coaching-track">
-            <div class="coaching-pb-card">
-              <div class="coaching-pb-icon">🎯</div>
-              <div class="coaching-pb-content">
-                <h3>Clarifier un projet professionnel</h3>
-              </div>
-            </div>
-            <div class="coaching-pb-card">
-              <div class="coaching-pb-icon">💪</div>
-              <div class="coaching-pb-content">
-                <h3>Confiance en soi &amp; affirmation</h3>
-              </div>
-            </div>
-            <div class="coaching-pb-card">
-              <div class="coaching-pb-icon">🔄</div>
-              <div class="coaching-pb-content">
-                <h3>Traverser une transition</h3>
-              </div>
-            </div>
-            <div class="coaching-pb-card">
-              <div class="coaching-pb-icon">⚖️</div>
-              <div class="coaching-pb-content">
-                <h3>Equilibre vie pro / vie perso</h3>
-              </div>
-            </div>
+            <div class="coaching-pb-card"><div class="coaching-pb-icon">🎯</div><div class="coaching-pb-content"><h3>Clarifier un projet professionnel</h3></div></div>
+            <div class="coaching-pb-card"><div class="coaching-pb-icon">💪</div><div class="coaching-pb-content"><h3>Confiance en soi &amp; affirmation</h3></div></div>
+            <div class="coaching-pb-card"><div class="coaching-pb-icon">🔄</div><div class="coaching-pb-content"><h3>Traverser une transition</h3></div></div>
+            <div class="coaching-pb-card"><div class="coaching-pb-icon">⚖️</div><div class="coaching-pb-content"><h3>Equilibre vie pro / vie perso</h3></div></div>
+            <!-- Clones boucle infinie -->
+            <div class="coaching-pb-card" aria-hidden="true"><div class="coaching-pb-icon">🎯</div><div class="coaching-pb-content"><h3>Clarifier un projet professionnel</h3></div></div>
+            <div class="coaching-pb-card" aria-hidden="true"><div class="coaching-pb-icon">💪</div><div class="coaching-pb-content"><h3>Confiance en soi &amp; affirmation</h3></div></div>
+            <div class="coaching-pb-card" aria-hidden="true"><div class="coaching-pb-icon">🔄</div><div class="coaching-pb-content"><h3>Traverser une transition</h3></div></div>
+            <div class="coaching-pb-card" aria-hidden="true"><div class="coaching-pb-icon">⚖️</div><div class="coaching-pb-content"><h3>Equilibre vie pro / vie perso</h3></div></div>
           </div>
         </div>
-        <button class="carousel-btn-dark" id="coaching-next" aria-label="Suivant">&#8594;</button>
-      </div>
-      <div class="carousel-dots-row">
-        <div class="carousel-dots" id="coaching-dots"></div>
       </div>
     </div>
 
@@ -1268,16 +1255,12 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
       <div class="coaching-video-wrap">
         <p class="coaching-video-label">Pour aller plus loin</p>
         <h4 class="coaching-video-title">Mieux comprendre le coaching professionnel</h4>
-        <div class="yt-embed-wrap">
-          <iframe
-            src="https://www.youtube.com/embed/TXA_n3UF0L0"
-            title="Mieux comprendre le coaching professionnel"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            loading="lazy">
-          </iframe>
-        </div>
+        <div class="yt-embed-wrap yt-facade" id="yt-facade" onclick="this.innerHTML='<iframe src=\'https://www.youtube.com/embed/TXA_n3UF0L0?autoplay=1\' title=\'Mieux comprendre le coaching professionnel\' frameborder=\'0\' allow=\'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\' allowfullscreen></iframe>'; this.style.cursor='default';" style="cursor:pointer; position:relative; background:#000;">
+            <img src="https://i.ytimg.com/vi/TXA_n3UF0L0/hqdefault.jpg" alt="Aperçu vidéo — cliquez pour lancer" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+              <svg width="68" height="48" viewBox="0 0 68 48" style="filter:drop-shadow(0 2px 6px rgba(0,0,0,0.5))"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24 27 14v20" fill="#fff"/></svg>
+            </div>
+          </div>
         <p class="yt-caption">Vidéo de présentation de ma démarche en tant que coach professionnel certifié</p>
       </div>
     </div>
@@ -1368,7 +1351,7 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
         <h3>Informations pratiques</h3>
         <div class="info-row">
           <span class="icon">📍</span>
-          <div class="info-text">15 rue du Dr Lucas-Championnière<br>75013 Paris<br><small>Place d'Italie · Gobelins · Maison Blanche</small></div>
+          <div class="info-text">3 rue du Dr Lucas-Championnière<br>75013 Paris<br><small>Place d'Italie · Gobelins · Maison Blanche</small></div>
         </div>
         <div class="info-row">
           <span class="icon">📞</span>
@@ -1380,7 +1363,7 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
         </div>
         <div class="info-row">
           <span class="icon">🕐</span>
-          <div class="info-text">Lundi au vendredi, de 9h à 12h et 14h à 17h<br><small>Sauf jours fériés</small></div>
+          <div class="info-text">Lundi au vendredi, de 8h30 à 21h<br><small>Sauf jours fériés</small></div>
         </div>
         <div class="info-row">
           <span class="icon">💻</span>
@@ -1390,10 +1373,6 @@ footer .f-copy { font-size: 0.59rem; color: rgba(255,255,255,0.25); }
           <div class="tarif-card">
             <div class="price">80 €</div>
             <div class="price-label">Séance individuelle<br>45 minutes</div>
-          </div>
-          <div class="tarif-card">
-            <div class="price">40 €</div>
-            <div class="price-label">Première séance<br>découverte</div>
           </div>
         </div>
       </div>
@@ -1570,6 +1549,7 @@ function initCarousel(trackId, prevId, nextId, dotsId, itemsPerView, darkDots) {
     cards.forEach(function(c) {
       c.style.width = cardW + 'px';
       c.style.minWidth = cardW + 'px';
+      c.style.height = 'auto';
     });
 
     var offset = cur * pv * (cardW + gap);
@@ -1595,9 +1575,7 @@ function initCarousel(trackId, prevId, nextId, dotsId, itemsPerView, darkDots) {
   goTo(0);
 }
 
-initCarousel('accomp-track',  'accomp-prev',  'accomp-next',  'accomp-dots',  2, false);
 initCarousel('gestalt-track', 'gestalt-prev', 'gestalt-next', 'gestalt-dots', 3, false);
-initCarousel('coaching-track','coaching-prev','coaching-next','coaching-dots', 2, true);
 initCarousel('avis-track',    'avis-prev',    'avis-next',    'avis-dots',    3, false);
 
 function sendMail() {
